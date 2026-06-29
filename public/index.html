@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neo Potter Loop Engine</title>
+    <meta
+      name="description"
+      content="Design intelligent AI loops in the Neo Potter style: vision first, systems second, human wisdom above the machine."
+    />
+    <link rel="preload" href="assets/loop-architect-hero.png" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-panel" aria-labelledby="app-title">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="#top" aria-label="Neo Potter Loop Engine">
+            <span class="brand-mark">NP</span>
+            <span>Loop Engine</span>
+          </a>
+          <div class="top-actions">
+            <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+              <i data-lucide="sun-medium"></i>
+            </button>
+            <button class="quiet-button" id="copyBlueprintTop" type="button">
+              <i data-lucide="copy"></i>
+              Copy
+            </button>
+          </div>
+        </nav>
+
+        <div class="workspace" id="top">
+          <section class="intro" aria-labelledby="app-title">
+            <p class="eyebrow">Neo Potter operating system</p>
+            <h1 id="app-title">Stop prompting. Start creating living systems.</h1>
+            <p class="manifesto">
+              A prompt is a single spark. A loop is a fire that keeps burning. Choose the mission, define
+              what good means, protect the boundary, and let intelligence serve the vision.
+            </p>
+            <div class="principles" aria-label="Operating principles">
+              <span>Vision first</span>
+              <span>System second</span>
+              <span>Automation third</span>
+              <span>Wisdom above machine</span>
+            </div>
+            <div class="trend-stack" aria-label="Eight signals combined">
+              <article class="trend-mini">
+                <span>01</span>
+                <strong>Stop prompting</strong>
+                <p>Build loops that think, check, improve, and return the next move.</p>
+              </article>
+              <article class="trend-mini">
+                <span>02</span>
+                <strong>Code with Consciousness</strong>
+                <p>Turn the Claude Tokyo signal into a Neo Potter builder movement.</p>
+              </article>
+              <article class="trend-mini">
+                <span>03</span>
+                <strong>Flow-Aware Intelligence</strong>
+                <p>Find the bottleneck, reduce waste, and move only what matters.</p>
+              </article>
+              <article class="trend-mini">
+                <span>04</span>
+                <strong>Learn the Loop</strong>
+                <p>Follow a simple masterclass path from beginner to system designer.</p>
+              </article>
+              <article class="trend-mini">
+                <span>05</span>
+                <strong>AI Path Finder</strong>
+                <p>Choose the right doorway instead of drowning in every resource.</p>
+              </article>
+              <article class="trend-mini">
+                <span>06</span>
+                <strong>Safe Loop Gates</strong>
+                <p>Add resistance so the loop improves instead of wandering.</p>
+              </article>
+              <article class="trend-mini">
+                <span>07</span>
+                <strong>Viral Signal Lab</strong>
+                <p>Turn useful open-source stacks into ethical creator growth loops.</p>
+              </article>
+              <article class="trend-mini">
+                <span>08</span>
+                <strong>Open-Source Arsenal</strong>
+                <p>Open each GitHub repo and choose the right tool for the mission.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="builder" aria-labelledby="builder-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">Loop Builder</p>
+                <h2 id="builder-title">Design the engine</h2>
+              </div>
+              <span class="status-pill" id="saveStatus">Saved locally</span>
+            </div>
+            <ol class="builder-steps" aria-label="Guided path">
+              <li><span>1</span> Choose mission</li>
+              <li><span>2</span> Set standard</li>
+              <li><span>3</span> Export loop</li>
+            </ol>
+
+            <div class="field">
+              <label for="loopType">Mission field</label>
+              <select id="loopType">
+                <option value="content">Content creation</option>
+                <option value="product">Product improvement</option>
+                <option value="marketing">Marketing expansion</option>
+                <option value="memory">Memory and strategy</option>
+                <option value="quality">Quality review</option>
+                <option value="workshop">Workshop / movement</option>
+                <option value="bottleneck">Find the bottleneck</option>
+                <option value="masterclass">Mini masterclass</option>
+                <option value="pathfinder">AI path finder</option>
+                <option value="safeloop">Safe loop gates</option>
+                <option value="virallab">Viral signal lab</option>
+                <option value="arsenal">Open-source arsenal</option>
+                <option value="custom">Custom loop</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="objective">Objective</label>
+              <textarea id="objective" rows="3">Turn raw ideas into clear, enlightened content that people can understand, trust, and follow.</textarea>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="metric">Success signal</label>
+                <textarea id="metric" rows="2">The output is clear, useful, emotionally grounded, and ready to publish.</textarea>
+              </div>
+              <div class="field">
+                <label for="boundary">Human boundary</label>
+                <textarea id="boundary" rows="2">Ask Neo before publishing, spending money, or making public promises.</textarea>
+              </div>
+            </div>
+
+            <div class="rhythm-group" aria-labelledby="rhythm-label">
+              <p id="rhythm-label">Operating rhythm</p>
+              <div class="segmented" role="radiogroup" aria-labelledby="rhythm-label">
+                <label><input type="radio" name="rhythm" value="daily" checked /> Daily</label>
+                <label><input type="radio" name="rhythm" value="weekly" /> Weekly</label>
+                <label><input type="radio" name="rhythm" value="always-on" /> Always-on</label>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="primary-button" id="generateBlueprint" type="button">
+                <i data-lucide="sparkles"></i>
+                Generate Blueprint
+              </button>
+              <button class="secondary-button" id="resetLoop" type="button">
+                <i data-lucide="rotate-ccw"></i>
+                Reset
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="signal-band" aria-labelledby="signal-title">
+        <div class="signal-layout">
+          <article class="signal-copy">
+            <p class="section-kicker">Eight signals, one app</p>
+            <h2 id="signal-title">Loops, movement, cleaner flow, learning paths, safe gates, viral labs, and an open-source arsenal.</h2>
+            <p>
+              The first signal is the loop: stop repeating prompts and design systems that work while you
+              lead. The second signal is Tokyo: agentic work is becoming live, social, workshop-driven, and
+              practical. The third signal is FlashAttention: intelligence gets stronger when the system
+              respects the real bottleneck. The fourth signal is the masterclass: people need a simple path
+              from beginner to automation operator. The fifth signal is the guide library: learning becomes
+              easy when people can choose the doorway that matches their goal. The sixth signal is safety:
+              every loop needs a gate that can reject weak work and send it back. The seventh signal is
+              creator growth: package useful tools, invite the right comment, and deliver value without spam.
+              The eighth signal is source access: every serious builder should be able to inspect the GitHub
+              repo, understand the tradeoff, and choose the tool that fits the mission.
+            </p>
+            <div class="fusion-line">
+              <i data-lucide="git-merge"></i>
+              <span>Neo Potter synthesis: Build Living Systems with consciousness, clarity, cleaner flow, teachable steps, guided choice, safe limits, ethical growth, and open-source leverage.</span>
+            </div>
+          </article>
+          <aside class="signal-card" aria-label="Tokyo signal actions">
+            <div class="signal-source">
+              <i data-lucide="radio"></i>
+              <span>Latest signal: Comment BUILD</span>
+            </div>
+            <p>
+              Neo Potter translation: do not chase the algorithm blindly. Study the signal, package the value,
+              invite action, and keep human taste as the final gate.
+            </p>
+            <div class="signal-actions">
+              <button class="secondary-button" id="applyTokyoSignal" type="button">
+                <i data-lucide="wand-sparkles"></i>
+                Apply Tokyo
+              </button>
+              <button class="secondary-button" id="applyBottleneckSignal" type="button">
+                <i data-lucide="scan-search"></i>
+                Find Bottleneck
+              </button>
+              <a class="link-button" href="https://x.com/i/status/2064885111477219664" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Tokyo
+              </a>
+              <a class="link-button" href="https://substack.com/@aiengineeringinsider/note/c-282010245?r=8ai88k" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                FlashAttention
+              </a>
+              <button class="secondary-button" id="applyPathSignal" type="button">
+                <i data-lucide="route"></i>
+                Path Finder
+              </button>
+              <a class="link-button" href="https://x.com/i/status/2070748966262866312" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Guide Library
+              </a>
+              <button class="secondary-button" id="applySafeLoopSignal" type="button">
+                <i data-lucide="shield-check"></i>
+                Safe Gates
+              </button>
+              <button class="secondary-button" id="applyViralSignal" type="button">
+                <i data-lucide="messages-square"></i>
+                Viral Lab
+              </button>
+              <button class="secondary-button" id="applyArsenalSignal" type="button">
+                <i data-lucide="github"></i>
+                Arsenal
+              </button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="arsenal-band" aria-labelledby="arsenal-title">
+        <div class="arsenal-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Open-source arsenal</p>
+            <h2 id="arsenal-title">Choose the GitHub tool that matches the mission.</h2>
+            <p>
+              The screenshot stack becomes a usable builder map: finance agents, AI chat, media generation,
+              inbox automation, browser agents, ad audits, and HTML-to-video. Open the repo, inspect the setup,
+              then build one small safe experiment.
+            </p>
+          </div>
+          <div class="arsenal-switchboard" aria-label="Open-source mission shortcuts">
+            <a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noreferrer">Trading agent</a>
+            <a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noreferrer">Market debate</a>
+            <a href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noreferrer">Finance terminal</a>
+            <a href="https://github.com/danny-avila/LibreChat" target="_blank" rel="noreferrer">AI chat hub</a>
+            <a href="https://github.com/Anil-matcha/Open-Higgsfield-AI" target="_blank" rel="noreferrer">Media studio</a>
+            <a href="https://github.com/Open-LLM-VTuber/open-llm-vtuber" target="_blank" rel="noreferrer">AI companion</a>
+            <a href="https://github.com/AgriciDaniel/claude-ads" target="_blank" rel="noreferrer">Ad audit</a>
+            <a href="https://github.com/cloudflare/agentic-inbox" target="_blank" rel="noreferrer">Email agent</a>
+            <a href="https://github.com/daijro/camoufox" target="_blank" rel="noreferrer">Browser agent</a>
+            <a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noreferrer">Video pipeline</a>
+          </div>
+          <div class="arsenal-grid" aria-label="Open-source AI tools with GitHub links">
+            <article class="tool-card finance">
+              <div class="tool-topline"><span>Finance</span><strong>01</strong></div>
+              <h3>AutoHedge</h3>
+              <p>Autonomous hedge-fund style agents for market research, validation, risk, and trade execution.</p>
+              <a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card finance">
+              <div class="tool-topline"><span>Finance</span><strong>02</strong></div>
+              <h3>Vibe Trading</h3>
+              <p>Finance research agents, trading skills, market analysis, and debate-before-action workflows.</p>
+              <a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card research">
+              <div class="tool-topline"><span>Research</span><strong>03</strong></div>
+              <h3>Fincept Terminal</h3>
+              <p>Bloomberg-style open-source finance terminal with market analytics and 100+ data connectors.</p>
+              <a href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card models">
+              <div class="tool-topline"><span>Models</span><strong>04</strong></div>
+              <h3>LibreChat</h3>
+              <p>Self-hosted chat platform for many AI providers, agents, MCP, artifacts, and private workflows.</p>
+              <a href="https://github.com/danny-avila/LibreChat" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card media">
+              <div class="tool-topline"><span>Media</span><strong>05</strong></div>
+              <h3>Open Higgsfield AI</h3>
+              <p>Open image and video studio with 200+ models for generation, editing, lip sync, and self-hosting.</p>
+              <a href="https://github.com/Anil-matcha/Open-Higgsfield-AI" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card companion">
+              <div class="tool-topline"><span>Companion</span><strong>06</strong></div>
+              <h3>Open LLM VTuber</h3>
+              <p>Voice-interactive desktop AI companion with Live2D, visual perception, and local/offline options.</p>
+              <a href="https://github.com/Open-LLM-VTuber/open-llm-vtuber" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card growth">
+              <div class="tool-topline"><span>Growth</span><strong>07</strong></div>
+              <h3>Claude Ads</h3>
+              <p>Paid ads audit skill for Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, and Apple Ads.</p>
+              <a href="https://github.com/AgriciDaniel/claude-ads" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card inbox">
+              <div class="tool-topline"><span>Inbox</span><strong>08</strong></div>
+              <h3>Agentic Inbox</h3>
+              <p>Cloudflare-powered self-hosted email client where an AI agent can read, search, and draft replies.</p>
+              <a href="https://github.com/cloudflare/agentic-inbox" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card browser">
+              <div class="tool-topline"><span>Browser</span><strong>09</strong></div>
+              <h3>Camoufox Browser</h3>
+              <p>Open-source anti-detect browser built for web scraping and AI agents with Playwright support.</p>
+              <a href="https://github.com/daijro/camoufox" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+            <article class="tool-card video">
+              <div class="tool-topline"><span>Video</span><strong>10</strong></div>
+              <h3>Hyperframes</h3>
+              <p>Write HTML, CSS, and animations, then render deterministic MP4 videos for agents and pipelines.</p>
+              <a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noreferrer">
+                <i data-lucide="github"></i>
+                GitHub
+              </a>
+            </article>
+          </div>
+          <div class="arsenal-flow" aria-label="How to use the open-source arsenal">
+            <article>
+              <i data-lucide="target"></i>
+              <strong>Pick Mission</strong>
+              <p>Choose one use case instead of collecting tools.</p>
+            </article>
+            <article>
+              <i data-lucide="github"></i>
+              <strong>Inspect Repo</strong>
+              <p>Check license, activity, setup, and security notes.</p>
+            </article>
+            <article>
+              <i data-lucide="flask-conical"></i>
+              <strong>Run Tiny Test</strong>
+              <p>Prove value locally before connecting real accounts.</p>
+            </article>
+            <article>
+              <i data-lucide="shield-check"></i>
+              <strong>Add Gate</strong>
+              <p>Protect money, credentials, private data, and public action.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyArsenalStack" type="button">
+              <i data-lucide="boxes"></i>
+              Build With This Stack
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="viral-band" aria-labelledby="viral-title">
+        <div class="viral-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Viral signal lab</p>
+            <h2 id="viral-title">Comment BUILD, then deliver real value.</h2>
+            <p>
+              The screenshot signal is simple: people respond to useful shortcuts. Package the open-source
+              stack, make the promise clear, and turn attention into a safe follow-up loop.
+            </p>
+          </div>
+          <div class="viral-grid" aria-label="Open-source AI stack from the screenshot">
+            <article class="viral-card highlight-card">
+              <span>Hook</span>
+              <h3>Free tools beat expensive stacks</h3>
+              <p>Lead with a specific promise: open-source AI gems that replace costly software.</p>
+            </article>
+            <article class="viral-card">
+              <span>Finance</span>
+              <h3>AutoHedge + Vibe Trading</h3>
+              <p>Research, debate, and simulate finance workflows before any real-world action.</p>
+            </article>
+            <article class="viral-card">
+              <span>Terminal</span>
+              <h3>Fincept Terminal</h3>
+              <p>Package Bloomberg-style market discovery into a practical builder resource.</p>
+            </article>
+            <article class="viral-card">
+              <span>Models</span>
+              <h3>LibreChat + Open Higgsfield</h3>
+              <p>Show people how to run many AI models without another subscription trap.</p>
+            </article>
+            <article class="viral-card">
+              <span>Agents</span>
+              <h3>Open LLM VTuber + Agentic Inbox</h3>
+              <p>Turn desktop companions and email agents into examples of useful automation.</p>
+            </article>
+            <article class="viral-card">
+              <span>Growth</span>
+              <h3>Claude Ads + Hyperframes</h3>
+              <p>Audit ad waste, turn HTML into video assets, and close with a clear CTA.</p>
+            </article>
+          </div>
+          <div class="viral-flow" aria-label="Comment to delivery loop">
+            <article>
+              <i data-lucide="search"></i>
+              <strong>Study</strong>
+              <p>Find high-signal tools and verify the claims.</p>
+            </article>
+            <article>
+              <i data-lucide="package-check"></i>
+              <strong>Package</strong>
+              <p>Create the guide, caption, visual, and CTA.</p>
+            </article>
+            <article>
+              <i data-lucide="message-circle"></i>
+              <strong>Invite</strong>
+              <p>Use a simple comment trigger like BUILD.</p>
+            </article>
+            <article>
+              <i data-lucide="shield-check"></i>
+              <strong>Gate</strong>
+              <p>Respect consent, platform rules, and brand taste.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyViralLabSignal" type="button">
+              <i data-lucide="messages-square"></i>
+              Start Viral Signal Lab
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="gate-band" aria-labelledby="gate-title">
+        <div class="gate-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Safe loop gates</p>
+            <h2 id="gate-title">The loop needs something that can say no.</h2>
+            <p>
+              A useful AI loop does not just act. It checks, rejects, retries, remembers, and stops at the
+              right door. That is what turns repetition into progress.
+            </p>
+          </div>
+          <div class="gate-grid" aria-label="Loop safety gates">
+            <article class="gate-card">
+              <i data-lucide="code-2"></i>
+              <h3>Code</h3>
+              <p>Failed tests send the agent back before a change is accepted.</p>
+            </article>
+            <article class="gate-card">
+              <i data-lucide="search-check"></i>
+              <h3>Research</h3>
+              <p>Unsupported claims fail until sources are added or removed.</p>
+            </article>
+            <article class="gate-card">
+              <i data-lucide="calculator"></i>
+              <h3>Finance</h3>
+              <p>Numbers must balance before the loop can continue.</p>
+            </article>
+            <article class="gate-card">
+              <i data-lucide="pen-tool"></i>
+              <h3>Content</h3>
+              <p>A rubric checks reasoning, repetition, clarity, and usefulness.</p>
+            </article>
+            <article class="gate-card">
+              <i data-lucide="user-check"></i>
+              <h3>Human Door</h3>
+              <p>Publishing, spending, deletion, and deployment wait for approval.</p>
+            </article>
+            <article class="gate-card">
+              <i data-lucide="stop-circle"></i>
+              <h3>Safe Stop</h3>
+              <p>Budgets and retry limits stop the loop before it wastes the night.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyGateSignal" type="button">
+              <i data-lucide="shield-check"></i>
+              Build Safe Loop
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="masterclass-band" aria-labelledby="masterclass-title">
+        <div class="masterclass-layout">
+          <div class="masterclass-heading">
+            <p class="section-kicker">Mini masterclass</p>
+            <h2 id="masterclass-title">Build your first living AI system.</h2>
+            <p>
+              A simple path from curiosity to execution: understand the shift, choose one mission,
+              find the bottleneck, design the loop, and leave with a usable operating system.
+            </p>
+          </div>
+          <div class="lesson-grid" aria-label="Masterclass lessons">
+            <article class="lesson-card">
+              <span>01</span>
+              <h3>See The Shift</h3>
+              <p>Move from one-off prompting into repeatable intelligent systems.</p>
+            </article>
+            <article class="lesson-card">
+              <span>02</span>
+              <h3>Choose The Mission</h3>
+              <p>Pick one area where better flow would create real value.</p>
+            </article>
+            <article class="lesson-card">
+              <span>03</span>
+              <h3>Set The Standard</h3>
+              <p>Define what good means before the machine starts moving.</p>
+            </article>
+            <article class="lesson-card">
+              <span>04</span>
+              <h3>Find The Bottleneck</h3>
+              <p>Name the place where attention, time, trust, or execution leaks.</p>
+            </article>
+            <article class="lesson-card">
+              <span>05</span>
+              <h3>Build The Loop</h3>
+              <p>Create the repeatable cycle that gathers, acts, checks, and improves.</p>
+            </article>
+            <article class="lesson-card">
+              <span>06</span>
+              <h3>Export The System</h3>
+              <p>Turn the lesson into a blueprint you can use, share, or refine.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyMasterclassSignal" type="button">
+              <i data-lucide="graduation-cap"></i>
+              Start Mini Masterclass
+            </button>
+            <a class="link-button" href="https://x.com/i/status/2071142007385563574" target="_blank" rel="noreferrer">
+              <i data-lucide="external-link"></i>
+              Course Signal
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="path-band" aria-labelledby="path-title">
+        <div class="path-layout">
+          <div class="path-heading">
+            <p class="section-kicker">AI path finder</p>
+            <h2 id="path-title">Choose the next right doorway.</h2>
+            <p>
+              A resource map for people who want fast progress without overwhelm. Pick the path that matches
+              the result you want, then turn that learning into a living loop.
+            </p>
+          </div>
+          <div class="path-grid" aria-label="Claude guide paths">
+            <article class="path-card">
+              <span>Start</span>
+              <h3>New To Claude</h3>
+              <a href="https://ruben.substack.com/p/claude-for-dummies" target="_blank" rel="noreferrer">Claude 101</a>
+              <a href="https://ruben.substack.com/p/prompt-47" target="_blank" rel="noreferrer">How to Prompt</a>
+              <a href="https://ruben.substack.com/p/s" target="_blank" rel="noreferrer">Be good at Claude</a>
+            </article>
+            <article class="path-card">
+              <span>Build</span>
+              <h3>Apps And Systems</h3>
+              <a href="https://ruben.substack.com/p/the-claude-code-bible" target="_blank" rel="noreferrer">Claude Code</a>
+              <a href="https://ruben.substack.com/p/claude-skills" target="_blank" rel="noreferrer">Claude Skills</a>
+              <a href="https://ruben.substack.com/p/claude-connectors" target="_blank" rel="noreferrer">Claude Connectors</a>
+            </article>
+            <article class="path-card">
+              <span>Automate</span>
+              <h3>Workflows</h3>
+              <a href="https://ruben.substack.com/p/claude-cowork-20" target="_blank" rel="noreferrer">Set up Claude Cowork</a>
+              <a href="https://ruben.substack.com/p/stop-prompting-claude" target="_blank" rel="noreferrer">Stop Prompting Claude</a>
+              <a href="https://ruben.substack.com/p/how-to-stop-hitting-claude-usage" target="_blank" rel="noreferrer">Stop hitting limits</a>
+            </article>
+            <article class="path-card">
+              <span>Create</span>
+              <h3>Voice And Content</h3>
+              <a href="https://ruben.substack.com/p/youre-just-a-text-file" target="_blank" rel="noreferrer">Claude to sound like you</a>
+              <a href="https://ruben.substack.com/p/its-not-x-its-y" target="_blank" rel="noreferrer">Stop writing like AI</a>
+              <a href="https://ruben.substack.com/p/claude-linkedin" target="_blank" rel="noreferrer">Claude + LinkedIn</a>
+            </article>
+            <article class="path-card">
+              <span>Design</span>
+              <h3>Visual And Office Work</h3>
+              <a href="https://ruben.substack.com/p/claude-design" target="_blank" rel="noreferrer">Claude Design</a>
+              <a href="https://ruben.substack.com/p/how-to-make-perfect-spreadsheets" target="_blank" rel="noreferrer">Claude for Excel</a>
+              <a href="https://ruben.substack.com/p/im-claude-certified" target="_blank" rel="noreferrer">Claude Certificates</a>
+            </article>
+            <article class="path-card">
+              <span>Team</span>
+              <h3>Business Use</h3>
+              <a href="https://ruben.substack.com/p/claude-for-teams" target="_blank" rel="noreferrer">Claude for your team</a>
+              <a href="https://ruben.substack.com/p/how-to-use-your-personal-ai-at-work" target="_blank" rel="noreferrer">Personal AI at work</a>
+              <a href="https://x.com/i/status/2070748966262866312" target="_blank" rel="noreferrer">Full guide thread</a>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyPathfinderSignal" type="button">
+              <i data-lucide="map"></i>
+              Start AI Path Finder
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="output-band" aria-labelledby="blueprint-title">
+        <div class="output-layout">
+          <article class="blueprint">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">Generated system</p>
+                <h2 id="blueprint-title">Living Loop Blueprint</h2>
+              </div>
+              <button class="icon-button" id="copyBlueprint" type="button" aria-label="Copy blueprint" title="Copy blueprint">
+                <i data-lucide="clipboard"></i>
+              </button>
+            </div>
+            <div class="blueprint-content" id="blueprintOutput" aria-live="polite"></div>
+          </article>
+
+          <aside class="loop-map" aria-labelledby="map-title">
+            <div class="panel-heading">
+              <div>
+                <p class="section-kicker">System map</p>
+                <h2 id="map-title">The five movements</h2>
+              </div>
+            </div>
+            <ol class="steps" id="loopSteps"></ol>
+            <button class="secondary-button full" id="downloadBlueprint" type="button">
+              <i data-lucide="download"></i>
+              Export Markdown
+            </button>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
