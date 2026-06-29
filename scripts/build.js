@@ -16,9 +16,30 @@ for (const file of required) {
 }
 
 const html = await readFile("public/index.html", "utf8");
+const app = await readFile("public/app.js", "utf8");
 for (const asset of ["styles.css", "app.js", "loop-architect-hero.png"]) {
   if (!html.includes(asset)) {
     throw new Error(`index.html does not reference ${asset}`);
+  }
+}
+
+const requiredGithubLinks = [
+  "https://github.com/The-Swarm-Corporation/AutoHedge",
+  "https://github.com/HKUDS/Vibe-Trading",
+  "https://github.com/Fincept-Corporation/FinceptTerminal",
+  "https://github.com/danny-avila/LibreChat",
+  "https://github.com/Anil-matcha/Open-Higgsfield-AI",
+  "https://github.com/Open-LLM-VTuber/open-llm-vtuber",
+  "https://github.com/AgriciDaniel/claude-ads",
+  "https://github.com/cloudflare/agentic-inbox",
+  "https://github.com/daijro/camoufox",
+  "https://github.com/heygen-com/hyperframes"
+];
+
+const source = `${html}\n${app}`;
+for (const link of requiredGithubLinks) {
+  if (!source.includes(link)) {
+    throw new Error(`Missing required GitHub link: ${link}`);
   }
 }
 

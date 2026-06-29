@@ -111,6 +111,74 @@ const templates = {
   }
 };
 
+const guideCopy = {
+  content: {
+    label: "Creator system",
+    body: "Shape raw ideas into clear, trustworthy output with a human approval gate.",
+    meta: "Best for publishing systems"
+  },
+  product: {
+    label: "Operator system",
+    body: "Find the next product upgrade by scanning friction, trust gaps, and daily usability.",
+    meta: "Best for app and service upgrades"
+  },
+  marketing: {
+    label: "Growth system",
+    body: "Turn audience signals into honest campaigns with a clear promise and review point.",
+    meta: "Best for launches and distribution"
+  },
+  memory: {
+    label: "Strategy system",
+    body: "Keep decisions, lessons, and project context sharp enough to guide the next cycle.",
+    meta: "Best for long-running work"
+  },
+  quality: {
+    label: "Review system",
+    body: "Check clarity, function, links, mobile fit, and trust before work reaches people.",
+    meta: "Best before publishing"
+  },
+  workshop: {
+    label: "Movement system",
+    body: "Teach builders to move from prompting into values-led intelligent systems.",
+    meta: "Best for live sessions"
+  },
+  bottleneck: {
+    label: "Flow system",
+    body: "Name the constraint that slows the work, then redesign the loop around it.",
+    meta: "Best for stuck projects"
+  },
+  masterclass: {
+    label: "Learning system",
+    body: "Guide a beginner from first idea to a loop they can run, improve, and teach.",
+    meta: "Best first run"
+  },
+  pathfinder: {
+    label: "Routing system",
+    body: "Match the user to the next useful learning path instead of showing every option.",
+    meta: "Best for overwhelmed learners"
+  },
+  safeloop: {
+    label: "Safety system",
+    body: "Add tests, retry limits, approval doors, and stopping rules before action scales.",
+    meta: "Best for high-risk loops"
+  },
+  virallab: {
+    label: "Signal system",
+    body: "Package useful open-source tools into a consent-safe creator growth loop.",
+    meta: "Best for ethical lead magnets"
+  },
+  arsenal: {
+    label: "Builder system",
+    body: "Choose the right GitHub repo, inspect the tradeoffs, and run one small safe test.",
+    meta: "Best for open-source experiments"
+  },
+  custom: {
+    label: "Custom system",
+    body: "Build a repeatable loop around the mission, standard, boundary, and rhythm you choose.",
+    meta: "Best for original workflows"
+  }
+};
+
 const fields = {
   loopType: document.querySelector("#loopType"),
   objective: document.querySelector("#objective"),
@@ -120,6 +188,10 @@ const fields = {
   steps: document.querySelector("#loopSteps"),
   saveStatus: document.querySelector("#saveStatus"),
   toast: document.querySelector("#toast"),
+  insightLabel: document.querySelector("#insightLabel"),
+  insightTitle: document.querySelector("#insightTitle"),
+  insightBody: document.querySelector("#insightBody"),
+  insightMeta: document.querySelector("#insightMeta"),
   progressMission: document.querySelector("#progressMission"),
   progressStandard: document.querySelector("#progressStandard"),
   progressExport: document.querySelector("#progressExport")
@@ -190,6 +262,14 @@ function rhythmLine(value) {
   return "Run daily, complete one useful cycle, and return with the clearest next move.";
 }
 
+function updateInsight(blueprint) {
+  const guide = guideCopy[fields.loopType.value] || guideCopy.custom;
+  fields.insightLabel.textContent = guide.label;
+  fields.insightTitle.textContent = blueprint.template.title;
+  fields.insightBody.textContent = guide.body;
+  fields.insightMeta.textContent = guide.meta;
+}
+
 function escapeHtml(value) {
   return value.replace(/[&<>"']/g, (character) => ({
     "&": "&amp;",
@@ -246,6 +326,7 @@ Vision first. System second. Automation third. Human wisdom always above the mac
 function renderBlueprint() {
   const blueprint = blueprintText();
   currentBlueprint = blueprint.markdown;
+  updateInsight(blueprint);
 
   fields.output.innerHTML = `
     <section class="blueprint-block">
@@ -349,7 +430,20 @@ function toast(message) {
 }
 
 async function copyBlueprint() {
-  await navigator.clipboard.writeText(currentBlueprint || blueprintText().markdown);
+  const text = currentBlueprint || blueprintText().markdown;
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+  } else {
+    const fallback = document.createElement("textarea");
+    fallback.value = text;
+    fallback.setAttribute("readonly", "");
+    fallback.style.position = "fixed";
+    fallback.style.left = "-9999px";
+    document.body.appendChild(fallback);
+    fallback.select();
+    document.execCommand("copy");
+    fallback.remove();
+  }
   toast("Blueprint copied");
 }
 

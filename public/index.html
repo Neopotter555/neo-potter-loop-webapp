@@ -61,6 +61,23 @@
               <span><strong>10</strong> GitHub repos</span>
               <span><strong>5</strong> loop movements</span>
             </div>
+            <div class="hero-brief" aria-label="First run path">
+              <div>
+                <span>01</span>
+                <strong>Frame the mission</strong>
+                <p>Choose one useful outcome before touching the tools.</p>
+              </div>
+              <div>
+                <span>02</span>
+                <strong>Set the gate</strong>
+                <p>Name the quality standard and human approval point.</p>
+              </div>
+              <div>
+                <span>03</span>
+                <strong>Export the system</strong>
+                <p>Leave with a reusable loop, not another loose prompt.</p>
+              </div>
+            </div>
             <div class="principles" aria-label="Operating principles">
               <span>Vision first</span>
               <span>System second</span>
@@ -122,26 +139,38 @@
             <div class="onboarding-panel" aria-label="Getting started">
               <div>
                 <p class="onboarding-label">Start here</p>
-                <h3>Pick one path, then let the builder fill the first draft.</h3>
+                <h3>Start with the outcome, not the tool.</h3>
                 <p>
-                  New to loops? Start with Masterclass. Building with repos? Start with Arsenal. Need control?
-                  Start with Safe Gates.
+                  Pick a starter path. The engine loads a mission, success signal, rhythm, and safety boundary
+                  so the first blueprint is useful before you customize it.
                 </p>
               </div>
               <div class="starter-actions">
                 <button type="button" class="starter-button" id="onboardMasterclass">
                   <i data-lucide="graduation-cap"></i>
-                  Masterclass
+                  <span>Masterclass</span>
+                  <small>Learn the loop</small>
                 </button>
                 <button type="button" class="starter-button" id="onboardArsenal">
                   <i data-lucide="github"></i>
-                  Arsenal
+                  <span>Arsenal</span>
+                  <small>Choose a repo</small>
                 </button>
                 <button type="button" class="starter-button" id="onboardSafeGates">
                   <i data-lucide="shield-check"></i>
-                  Safe Gates
+                  <span>Safe Gates</span>
+                  <small>Control risk</small>
                 </button>
               </div>
+            </div>
+            <div class="builder-insight" aria-live="polite">
+              <div class="insight-topline">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span id="insightLabel">Current path</span>
+              </div>
+              <h3 id="insightTitle">Content Creation Loop</h3>
+              <p id="insightBody">Shape raw ideas into clear, trustworthy output with a human approval gate.</p>
+              <span class="insight-meta" id="insightMeta">Best for publishing systems</span>
             </div>
             <ol class="builder-steps" aria-label="Guided path">
               <li class="is-active" id="progressMission"><span>1</span> Choose mission</li>
@@ -166,11 +195,13 @@
                 <option value="arsenal">Open-source arsenal</option>
                 <option value="custom">Custom loop</option>
               </select>
+              <p class="field-note">Each field preloads an opinionated starter blueprint you can edit immediately.</p>
             </div>
 
             <div class="field">
               <label for="objective">Objective</label>
               <textarea id="objective" rows="3">Turn raw ideas into clear, enlightened content that people can understand, trust, and follow.</textarea>
+              <p class="field-note">Write the result you want the system to create, not the task you want the AI to perform.</p>
             </div>
 
             <div class="field-grid">
@@ -688,6 +719,13 @@
               <div>
                 <p class="section-kicker">System map</p>
                 <h2 id="map-title">The five movements</h2>
+              </div>
+            </div>
+            <div class="export-brief">
+              <i data-lucide="badge-check"></i>
+              <div>
+                <strong>Export-ready after review</strong>
+                <p>Copy the blueprint into your agent, project memory, or README once the human boundary feels right.</p>
               </div>
             </div>
             <ol class="steps" id="loopSteps"></ol>

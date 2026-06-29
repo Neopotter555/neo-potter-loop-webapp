@@ -10,6 +10,7 @@ https://neo-potter-loop-engine.netlify.app
 
 - Living AI Loop Builder
 - Premium first-run onboarding with guided paths
+- Dynamic mission guidance for each loop type
 - Mini Masterclass path
 - AI Path Finder
 - Safe Loop Gates
@@ -18,6 +19,7 @@ https://neo-potter-loop-engine.netlify.app
 - Copy and Markdown export
 - Mobile responsive design
 - Netlify-ready config
+- Build-time verification for all required GitHub links
 
 ## Product Flow
 
