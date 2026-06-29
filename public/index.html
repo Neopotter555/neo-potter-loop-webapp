@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#builder-title">Skip to loop builder</a>
+    <a class="skip-link" href="#guided-build">Skip to loop builder</a>
     <main class="app-shell">
       <section class="hero-panel" aria-labelledby="app-title">
         <div class="hero-media" aria-hidden="true"></div>
@@ -23,7 +23,7 @@
             <span>Loop Engine</span>
           </a>
           <div class="top-links" aria-label="Sections">
-            <a href="#builder-title">Builder</a>
+            <a href="#guided-build">Builder</a>
             <a href="#arsenal-title">GitHub Arsenal</a>
             <a href="#blueprint-title">Blueprint</a>
           </div>
@@ -47,10 +47,10 @@
               what good means, protect the boundary, and let intelligence serve the vision.
             </p>
             <div class="hero-actions" aria-label="Start actions">
-              <button class="primary-button hero-primary" id="startGuidedBuild" type="button">
+              <a class="primary-button hero-primary" id="startGuidedBuild" href="#guided-build">
                 <i data-lucide="play-circle"></i>
                 Start Guided Build
-              </button>
+              </a>
               <a class="secondary-button hero-secondary" href="#arsenal-title">
                 <i data-lucide="github"></i>
                 Browse GitHub Tools
@@ -128,7 +128,7 @@
             </div>
           </section>
 
-          <section class="builder" aria-labelledby="builder-title">
+          <section class="builder" id="guided-build" aria-labelledby="builder-title" tabindex="-1">
             <div class="panel-heading">
               <div>
                 <p class="section-kicker">Loop Builder</p>

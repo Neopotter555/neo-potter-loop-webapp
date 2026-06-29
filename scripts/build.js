@@ -23,6 +23,17 @@ for (const asset of ["styles.css", "app.js", "loop-architect-hero.png"]) {
   }
 }
 
+const anchorTags = html.match(/<a\b[^>]*>/g) || [];
+const startGuidedBuildLinksToTarget = anchorTags.some((tag) =>
+  tag.includes('id="startGuidedBuild"') && tag.includes('href="#guided-build"')
+);
+if (!startGuidedBuildLinksToTarget) {
+  throw new Error("Start Guided Build must be a real link to #guided-build");
+}
+if (!html.includes('id="guided-build"')) {
+  throw new Error("Start Guided Build target #guided-build is missing");
+}
+
 const requiredGithubLinks = [
   "https://github.com/The-Swarm-Corporation/AutoHedge",
   "https://github.com/HKUDS/Vibe-Trading",

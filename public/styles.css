@@ -752,6 +752,7 @@ textarea {
   color: #18140d;
   padding: 0 16px;
   font-weight: 850;
+  text-decoration: none;
 }
 
 .secondary-button,
@@ -784,6 +785,7 @@ textarea {
   padding: 0;
 }
 
+.primary-button:hover,
 button:hover {
   transform: translateY(-1px);
 }
@@ -793,14 +795,25 @@ button:hover {
   transform: translateY(-1px);
 }
 
+.primary-button:active,
 button:active {
   transform: translateY(0);
 }
 
 button svg,
+.primary-button svg,
 .link-button svg {
   width: 18px;
   height: 18px;
+}
+
+.builder:focus {
+  outline: none;
+}
+
+.builder:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
 }
 
 .signal-band {

@@ -239,12 +239,26 @@ function setProgress(stage) {
   });
 }
 
+function scrollToTarget(selector, hash) {
+  const target = document.querySelector(selector);
+  if (!target) return;
+
+  if (hash && window.location.hash !== hash) {
+    history.pushState(null, "", hash);
+  }
+
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (typeof target.focus === "function") {
+    target.focus({ preventScroll: true });
+  }
+}
+
 function scrollToBuilder() {
-  document.querySelector("#builder-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToTarget("#guided-build", "#guided-build");
 }
 
 function scrollToBlueprint() {
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToTarget("#blueprint-title", "#blueprint-title");
 }
 
 function getRhythm() {
@@ -503,7 +517,8 @@ buttons.download.addEventListener("click", () => {
   downloadBlueprint();
 });
 buttons.theme.addEventListener("click", toggleTheme);
-function startMasterclass() {
+function startMasterclass(event) {
+  event?.preventDefault();
   fields.loopType.value = "masterclass";
   setRhythm("weekly");
   applyTemplate();
