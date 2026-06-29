@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#builder-title">Skip to loop builder</a>
     <main class="app-shell">
       <section class="hero-panel" aria-labelledby="app-title">
         <div class="hero-media" aria-hidden="true"></div>
@@ -21,6 +22,11 @@
             <span class="brand-mark">NP</span>
             <span>Loop Engine</span>
           </a>
+          <div class="top-links" aria-label="Sections">
+            <a href="#builder-title">Builder</a>
+            <a href="#arsenal-title">GitHub Arsenal</a>
+            <a href="#blueprint-title">Blueprint</a>
+          </div>
           <div class="top-actions">
             <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
               <i data-lucide="sun-medium"></i>
@@ -40,6 +46,21 @@
               A prompt is a single spark. A loop is a fire that keeps burning. Choose the mission, define
               what good means, protect the boundary, and let intelligence serve the vision.
             </p>
+            <div class="hero-actions" aria-label="Start actions">
+              <button class="primary-button hero-primary" id="startGuidedBuild" type="button">
+                <i data-lucide="play-circle"></i>
+                Start Guided Build
+              </button>
+              <a class="secondary-button hero-secondary" href="#arsenal-title">
+                <i data-lucide="github"></i>
+                Browse GitHub Tools
+              </a>
+            </div>
+            <div class="metric-strip" aria-label="Product highlights">
+              <span><strong>8</strong> strategy signals</span>
+              <span><strong>10</strong> GitHub repos</span>
+              <span><strong>5</strong> loop movements</span>
+            </div>
             <div class="principles" aria-label="Operating principles">
               <span>Vision first</span>
               <span>System second</span>
@@ -98,10 +119,34 @@
               </div>
               <span class="status-pill" id="saveStatus">Saved locally</span>
             </div>
+            <div class="onboarding-panel" aria-label="Getting started">
+              <div>
+                <p class="onboarding-label">Start here</p>
+                <h3>Pick one path, then let the builder fill the first draft.</h3>
+                <p>
+                  New to loops? Start with Masterclass. Building with repos? Start with Arsenal. Need control?
+                  Start with Safe Gates.
+                </p>
+              </div>
+              <div class="starter-actions">
+                <button type="button" class="starter-button" id="onboardMasterclass">
+                  <i data-lucide="graduation-cap"></i>
+                  Masterclass
+                </button>
+                <button type="button" class="starter-button" id="onboardArsenal">
+                  <i data-lucide="github"></i>
+                  Arsenal
+                </button>
+                <button type="button" class="starter-button" id="onboardSafeGates">
+                  <i data-lucide="shield-check"></i>
+                  Safe Gates
+                </button>
+              </div>
+            </div>
             <ol class="builder-steps" aria-label="Guided path">
-              <li><span>1</span> Choose mission</li>
-              <li><span>2</span> Set standard</li>
-              <li><span>3</span> Export loop</li>
+              <li class="is-active" id="progressMission"><span>1</span> Choose mission</li>
+              <li id="progressStandard"><span>2</span> Set standard</li>
+              <li id="progressExport"><span>3</span> Export loop</li>
             </ol>
 
             <div class="field">

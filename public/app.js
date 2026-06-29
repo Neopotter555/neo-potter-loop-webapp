@@ -119,7 +119,10 @@ const fields = {
   output: document.querySelector("#blueprintOutput"),
   steps: document.querySelector("#loopSteps"),
   saveStatus: document.querySelector("#saveStatus"),
-  toast: document.querySelector("#toast")
+  toast: document.querySelector("#toast"),
+  progressMission: document.querySelector("#progressMission"),
+  progressStandard: document.querySelector("#progressStandard"),
+  progressExport: document.querySelector("#progressExport")
 };
 
 const buttons = {
@@ -129,6 +132,10 @@ const buttons = {
   copyTop: document.querySelector("#copyBlueprintTop"),
   download: document.querySelector("#downloadBlueprint"),
   theme: document.querySelector("#themeToggle"),
+  startGuidedBuild: document.querySelector("#startGuidedBuild"),
+  onboardMasterclass: document.querySelector("#onboardMasterclass"),
+  onboardArsenal: document.querySelector("#onboardArsenal"),
+  onboardSafeGates: document.querySelector("#onboardSafeGates"),
   applyTokyoSignal: document.querySelector("#applyTokyoSignal"),
   applyBottleneckSignal: document.querySelector("#applyBottleneckSignal"),
   applyMasterclassSignal: document.querySelector("#applyMasterclassSignal"),
@@ -144,6 +151,29 @@ const buttons = {
 
 const storageKey = "neo-potter-loop-engine";
 let currentBlueprint = "";
+
+function setProgress(stage) {
+  const order = ["mission", "standard", "export"];
+  const items = {
+    mission: fields.progressMission,
+    standard: fields.progressStandard,
+    export: fields.progressExport
+  };
+  const activeIndex = order.indexOf(stage);
+
+  order.forEach((key, index) => {
+    items[key].classList.toggle("is-active", index === activeIndex);
+    items[key].classList.toggle("is-complete", index < activeIndex);
+  });
+}
+
+function scrollToBuilder() {
+  document.querySelector("#builder-title").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function scrollToBlueprint() {
+  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 function getRhythm() {
   return document.querySelector("input[name='rhythm']:checked")?.value || "daily";
@@ -221,6 +251,10 @@ function renderBlueprint() {
     <section class="blueprint-block">
       <h3>Neo Potter Frame</h3>
       <p>Stop prompting. Start creating living systems. The human chooses the mission. The system handles repetition. Wisdom stays above the machine.</p>
+    </section>
+    <section class="blueprint-block">
+      <h3>Selected Loop</h3>
+      <p>${escapeHtml(blueprint.template.title)}</p>
     </section>
     ${blueprint.template.signal ? `
     <section class="blueprint-block">
@@ -305,6 +339,7 @@ function applyTemplate() {
   fields.metric.value = template.metric;
   fields.boundary.value = template.boundary;
   renderBlueprint();
+  setProgress("standard");
 }
 
 function toast(message) {
@@ -343,48 +378,67 @@ fields.loopType.addEventListener("change", applyTemplate);
 [fields.objective, fields.metric, fields.boundary].forEach((field) => {
   field.addEventListener("input", () => {
     fields.saveStatus.textContent = "Saving...";
+    setProgress("standard");
     renderBlueprint();
   });
 });
 document.querySelectorAll("input[name='rhythm']").forEach((radio) => {
-  radio.addEventListener("change", renderBlueprint);
+  radio.addEventListener("change", () => {
+    setProgress("standard");
+    renderBlueprint();
+  });
 });
 
 buttons.generate.addEventListener("click", () => {
   renderBlueprint();
+  setProgress("export");
+  scrollToBlueprint();
   toast("Blueprint generated");
 });
 buttons.reset.addEventListener("click", applyTemplate);
-buttons.copy.addEventListener("click", copyBlueprint);
-buttons.copyTop.addEventListener("click", copyBlueprint);
-buttons.download.addEventListener("click", downloadBlueprint);
+buttons.copy.addEventListener("click", () => {
+  setProgress("export");
+  copyBlueprint();
+});
+buttons.copyTop.addEventListener("click", () => {
+  setProgress("export");
+  copyBlueprint();
+});
+buttons.download.addEventListener("click", () => {
+  setProgress("export");
+  downloadBlueprint();
+});
 buttons.theme.addEventListener("click", toggleTheme);
+function startMasterclass() {
+  fields.loopType.value = "masterclass";
+  setRhythm("weekly");
+  applyTemplate();
+  scrollToBuilder();
+  toast("Mini masterclass started");
+}
+
+buttons.startGuidedBuild.addEventListener("click", startMasterclass);
+buttons.onboardMasterclass.addEventListener("click", startMasterclass);
 buttons.applyTokyoSignal.addEventListener("click", () => {
   fields.loopType.value = "workshop";
   setRhythm("weekly");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("Tokyo signal applied");
 });
 buttons.applyBottleneckSignal.addEventListener("click", () => {
   fields.loopType.value = "bottleneck";
   setRhythm("daily");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("Bottleneck mode applied");
 });
-buttons.applyMasterclassSignal.addEventListener("click", () => {
-  fields.loopType.value = "masterclass";
-  setRhythm("weekly");
-  applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
-  toast("Mini masterclass started");
-});
+buttons.applyMasterclassSignal.addEventListener("click", startMasterclass);
 function startPathfinder() {
   fields.loopType.value = "pathfinder";
   setRhythm("weekly");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("AI path finder started");
 }
 buttons.applyPathSignal.addEventListener("click", startPathfinder);
@@ -393,16 +447,17 @@ function startSafeLoop() {
   fields.loopType.value = "safeloop";
   setRhythm("daily");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("Safe loop gates applied");
 }
+buttons.onboardSafeGates.addEventListener("click", startSafeLoop);
 buttons.applySafeLoopSignal.addEventListener("click", startSafeLoop);
 buttons.applyGateSignal.addEventListener("click", startSafeLoop);
 function startViralLab() {
   fields.loopType.value = "virallab";
   setRhythm("weekly");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("Viral Signal Lab started");
 }
 buttons.applyViralSignal.addEventListener("click", startViralLab);
@@ -411,14 +466,16 @@ function startArsenal() {
   fields.loopType.value = "arsenal";
   setRhythm("weekly");
   applyTemplate();
-  document.querySelector("#blueprint-title").scrollIntoView({ behavior: "smooth", block: "start" });
+  scrollToBlueprint();
   toast("Open-source arsenal started");
 }
+buttons.onboardArsenal.addEventListener("click", startArsenal);
 buttons.applyArsenalSignal.addEventListener("click", startArsenal);
 buttons.applyArsenalStack.addEventListener("click", startArsenal);
 
 loadState();
 renderBlueprint();
+setProgress("mission");
 
 if (window.lucide) {
   window.lucide.createIcons();

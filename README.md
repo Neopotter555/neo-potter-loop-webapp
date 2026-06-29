@@ -9,6 +9,7 @@ https://neo-potter-loop-engine.netlify.app
 ## What Is Included
 
 - Living AI Loop Builder
+- Premium first-run onboarding with guided paths
 - Mini Masterclass path
 - AI Path Finder
 - Safe Loop Gates
@@ -17,6 +18,14 @@ https://neo-potter-loop-engine.netlify.app
 - Copy and Markdown export
 - Mobile responsive design
 - Netlify-ready config
+
+## Product Flow
+
+1. Choose a starter path: Masterclass, Arsenal, or Safe Gates.
+2. Adjust the mission, success signal, human boundary, and rhythm.
+3. Generate the Living Loop Blueprint.
+4. Copy or export the Markdown system.
+5. Use the GitHub Arsenal links for deeper open-source experiments.
 
 ## Open-Source Arsenal Links
 
