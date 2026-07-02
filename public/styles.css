@@ -220,6 +220,75 @@ textarea:focus-visible {
   font-weight: 900;
 }
 
+.quick-menu {
+  position: relative;
+}
+
+.quick-menu summary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-strong);
+  color: var(--text);
+  padding: 0 12px;
+  font-size: 0.82rem;
+  font-weight: 900;
+  cursor: pointer;
+  list-style: none;
+}
+
+.quick-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.quick-menu summary svg {
+  width: 18px;
+  height: 18px;
+}
+
+.quick-menu-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 50;
+  display: grid;
+  width: min(260px, calc(100vw - 32px));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-solid);
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+
+.quick-menu-panel a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: var(--text);
+  padding: 0 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+.quick-menu-panel a:hover {
+  background: rgba(217, 173, 99, 0.14);
+  color: var(--gold);
+}
+
+.quick-menu-panel svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+  flex: 0 0 auto;
+}
+
 .top-links {
   gap: 6px;
   padding: 5px;
