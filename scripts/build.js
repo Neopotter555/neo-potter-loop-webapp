@@ -35,6 +35,15 @@ if (!html.includes('id="guided-build"')) {
 }
 
 const requiredGithubLinks = [
+  "https://github.com/All-Hands-AI/OpenHands",
+  "https://github.com/NousResearch/hermes-agent",
+  "https://github.com/crewAIInc/crewAI",
+  "https://github.com/Aider-AI/aider",
+  "https://github.com/n8n-io/n8n",
+  "https://github.com/langchain-ai/langgraph",
+  "https://github.com/browser-use/browser-use",
+  "https://github.com/punkpeye/awesome-mcp-servers",
+  "https://github.com/eyaltoledano/claude-task-master",
   "https://github.com/The-Swarm-Corporation/AutoHedge",
   "https://github.com/HKUDS/Vibe-Trading",
   "https://github.com/Fincept-Corporation/FinceptTerminal",
@@ -44,14 +53,30 @@ const requiredGithubLinks = [
   "https://github.com/AgriciDaniel/claude-ads",
   "https://github.com/cloudflare/agentic-inbox",
   "https://github.com/daijro/camoufox",
-  "https://github.com/heygen-com/hyperframes"
+  "https://github.com/heygen-com/hyperframes",
+  "https://github.com/Neopotter555/neo-potter-loop-webapp",
+  "https://github.com/Neopotter555/eeg-hackathon-superai",
+  "https://github.com/alexph-dev/Serenbrainwave",
+  "https://github.com/openclaw/openclaw/releases/latest",
+  "https://github.com/openclaw/openclaw/issues/87331",
+  "https://github.com/openclaw/openclaw/pull/87272",
+  "https://github.com/openclaw/openclaw/commit/42e9504"
 ];
 
 const source = `${html}\n${app}`;
+if (!source.includes("https://neo-caveman.netlify.app")) {
+  throw new Error("Missing required Caveman web app link");
+}
+
 for (const link of requiredGithubLinks) {
   if (!source.includes(link)) {
     throw new Error(`Missing required GitHub link: ${link}`);
   }
+}
+
+const duplicateLinks = requiredGithubLinks.filter((link, index) => requiredGithubLinks.indexOf(link) !== index);
+if (duplicateLinks.length) {
+  throw new Error(`Duplicate required GitHub links: ${duplicateLinks.join(", ")}`);
 }
 
 console.log("Neo Potter Loop web app build verified.");

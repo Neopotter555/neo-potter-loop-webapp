@@ -6,104 +6,138 @@
     <title>Neo Potter Loop Engine</title>
     <meta
       name="description"
-      content="Design intelligent AI loops in the Neo Potter style: vision first, systems second, human wisdom above the machine."
+      content="A Neo Potter web app for turning scattered ideas, open-source tools, and daily practice into one clear loop engine."
     />
     <link rel="preload" href="assets/loop-architect-hero.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#guided-build">Skip to loop builder</a>
+    <a class="skip-link" href="#guided-build">Skip to reset builder</a>
     <main class="app-shell">
       <section class="hero-panel" aria-labelledby="app-title">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-shade" aria-hidden="true"></div>
         <nav class="topbar" aria-label="Primary">
           <a class="brand" href="#top" aria-label="Neo Potter Loop Engine">
-            <span class="brand-mark">NP</span>
-            <span>Loop Engine</span>
+            <span class="brand-word">Neo<span>Potter</span></span>
           </a>
           <div class="top-links" aria-label="Sections">
-            <a href="#guided-build">Builder</a>
+            <a href="#guided-build">Reset</a>
+            <a href="#habits-title">Habits</a>
+            <a href="#agentic-title">System</a>
             <a href="#arsenal-title">GitHub Arsenal</a>
             <a href="#blueprint-title">Blueprint</a>
           </div>
           <div class="top-actions">
+            <label class="language-control" for="languageSelect">
+              <span>Language</span>
+              <select id="languageSelect" aria-label="Language">
+                <option value="en">EN</option>
+                <option value="th">TH</option>
+                <option value="ms">MS</option>
+                <option value="zh">中文</option>
+              </select>
+            </label>
             <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
               <i data-lucide="sun-medium"></i>
             </button>
             <button class="quiet-button" id="copyBlueprintTop" type="button">
               <i data-lucide="copy"></i>
-              Copy
+              Practice
             </button>
           </div>
         </nav>
 
         <div class="workspace" id="top">
           <section class="intro" aria-labelledby="app-title">
-            <p class="eyebrow">Neo Potter operating system</p>
-            <h1 id="app-title">Stop prompting. Start creating living systems.</h1>
+            <p class="eyebrow">AI literacy / creator systems / daily practice</p>
+            <h1 id="app-title">Build the loop. Keep the human in charge.</h1>
             <p class="manifesto">
-              A prompt is a single spark. A loop is a fire that keeps burning. Choose the mission, define
-              what good means, protect the boundary, and let intelligence serve the vision.
+              A focused operating page for Neo Potter projects: daily resets, AI workflows, GitHub tools,
+              safety gates, and builder notes in one calm place.
             </p>
             <div class="hero-actions" aria-label="Start actions">
               <a class="primary-button hero-primary" id="startGuidedBuild" href="#guided-build">
                 <i data-lucide="play-circle"></i>
-                Start Guided Build
+                Start Practice
               </a>
-              <a class="secondary-button hero-secondary" href="#arsenal-title">
-                <i data-lucide="github"></i>
-                Browse GitHub Tools
+              <a class="secondary-button hero-secondary" href="#habits-title">
+                <i data-lucide="scan-heart"></i>
+                Study The Map
               </a>
             </div>
+            <div class="hero-stage" aria-label="ThinkShift learning preview">
+              <div class="code-card float-card" aria-hidden="true">
+                <span>// reset-loop.js</span>
+                <code>const future = choose("clarity");</code>
+                <code>return habit.replace(noise);</code>
+              </div>
+              <div class="exam-card float-card">
+                <div class="card-window"><span></span><span></span><span></span>CHAPTER RESET</div>
+                <p>QUESTION 3 OF 5</p>
+                <h3>Where should your attention live?</h3>
+                <div class="answer correct"><i data-lucide="check"></i> In the environment that supports you</div>
+                <div class="answer">In every urgent notification</div>
+                <div class="answer">Inside yesterday's identity</div>
+                <strong>+100 XP on a clean reset</strong>
+              </div>
+              <div class="certificate-card float-card">
+                <span>NeoPotter</span>
+                <small>CERTIFICATE</small>
+                <p>THIS CERTIFIES THAT</p>
+                <h3>Demo Learner</h3>
+                <p>completed ThinkShift OS - Daily Reset</p>
+                <b>VERIFIED</b>
+              </div>
+            </div>
             <div class="metric-strip" aria-label="Product highlights">
-              <span><strong>8</strong> strategy signals</span>
-              <span><strong>10</strong> GitHub repos</span>
-              <span><strong>5</strong> loop movements</span>
+              <span><strong>3</strong> hidden patterns</span>
+              <span><strong>5</strong> reset moves</span>
+              <span><strong>1</strong> clearer day</span>
             </div>
             <div class="hero-brief" aria-label="First run path">
               <div>
                 <span>01</span>
-                <strong>Frame the mission</strong>
-                <p>Choose one useful outcome before touching the tools.</p>
+                <strong>Name the drain</strong>
+                <p>Separate meaningful effort from empty fatigue.</p>
               </div>
               <div>
                 <span>02</span>
-                <strong>Set the gate</strong>
-                <p>Name the quality standard and human approval point.</p>
+                <strong>Change the room</strong>
+                <p>Design an environment that supports the version you are becoming.</p>
               </div>
               <div>
                 <span>03</span>
-                <strong>Export the system</strong>
-                <p>Leave with a reusable loop, not another loose prompt.</p>
+                <strong>Run the identity</strong>
+                <p>Leave with a daily blueprint, not another motivational quote.</p>
               </div>
             </div>
             <div class="principles" aria-label="Operating principles">
-              <span>Vision first</span>
-              <span>System second</span>
-              <span>Automation third</span>
-              <span>Wisdom above machine</span>
+              <span>Clarity first</span>
+              <span>Environment second</span>
+              <span>Identity third</span>
+              <span>Peace above performance</span>
             </div>
-            <div class="trend-stack" aria-label="Eight signals combined">
+            <div class="trend-stack" aria-label="Ten signals combined">
               <article class="trend-mini">
                 <span>01</span>
-                <strong>Stop prompting</strong>
-                <p>Build loops that think, check, improve, and return the next move.</p>
+                <strong>Busy trap</strong>
+                <p>Activity that consumes energy but does not move the real life forward.</p>
               </article>
               <article class="trend-mini">
                 <span>02</span>
-                <strong>Code with Consciousness</strong>
-                <p>Turn the Claude Tokyo signal into a Neo Potter builder movement.</p>
+                <strong>Wrong room</strong>
+                <p>Trying to win while staying inside an environment built against you.</p>
               </article>
               <article class="trend-mini">
                 <span>03</span>
-                <strong>Flow-Aware Intelligence</strong>
-                <p>Find the bottleneck, reduce waste, and move only what matters.</p>
+                <strong>Old identity</strong>
+                <p>Repeating choices from a version of yourself you have already outgrown.</p>
               </article>
               <article class="trend-mini">
                 <span>04</span>
-                <strong>Learn the Loop</strong>
-                <p>Follow a simple masterclass path from beginner to system designer.</p>
+                <strong>Better question</strong>
+                <p>What would the aligned version of me remove, choose, and repeat today?</p>
               </article>
               <article class="trend-mini">
                 <span>05</span>
@@ -125,41 +159,51 @@
                 <strong>Open-Source Arsenal</strong>
                 <p>Open each GitHub repo and choose the right tool for the mission.</p>
               </article>
+              <article class="trend-mini">
+                <span>09</span>
+                <strong>Caveman Compression</strong>
+                <p>Keep full reasoning, cut verbal waste, and ship with proof.</p>
+              </article>
+              <article class="trend-mini">
+                <span>10</span>
+                <strong>Agentic Engineering</strong>
+                <p>Wrap AI speed in tests, modularity, CI, feedback loops, and judgment.</p>
+              </article>
             </div>
           </section>
 
           <section class="builder" id="guided-build" aria-labelledby="builder-title" tabindex="-1">
             <div class="panel-heading">
               <div>
-                <p class="section-kicker">Loop Builder</p>
-                <h2 id="builder-title">Design the engine</h2>
+                <p class="section-kicker">Daily reset builder</p>
+                <h2 id="builder-title">Design the shift</h2>
               </div>
               <span class="status-pill" id="saveStatus">Saved locally</span>
             </div>
             <div class="onboarding-panel" aria-label="Getting started">
               <div>
                 <p class="onboarding-label">Start here</p>
-                <h3>Start with the outcome, not the tool.</h3>
+                <h3>Start with the pattern, not the pressure.</h3>
                 <p>
-                  Pick a starter path. The engine loads a mission, success signal, rhythm, and safety boundary
-                  so the first blueprint is useful before you customize it.
+                  Pick the trap that feels most true today. The app loads a reset, success signal, boundary,
+                  and daily rhythm so you can move from insight into behavior.
                 </p>
               </div>
               <div class="starter-actions">
                 <button type="button" class="starter-button" id="onboardMasterclass">
                   <i data-lucide="graduation-cap"></i>
-                  <span>Masterclass</span>
-                  <small>Learn the loop</small>
+                  <span>Busy Trap</span>
+                  <small>Cut distraction</small>
                 </button>
                 <button type="button" class="starter-button" id="onboardArsenal">
-                  <i data-lucide="github"></i>
-                  <span>Arsenal</span>
-                  <small>Choose a repo</small>
+                  <i data-lucide="home"></i>
+                  <span>Environment</span>
+                  <small>Change the room</small>
                 </button>
                 <button type="button" class="starter-button" id="onboardSafeGates">
-                  <i data-lucide="shield-check"></i>
-                  <span>Safe Gates</span>
-                  <small>Control risk</small>
+                  <i data-lucide="user-round-check"></i>
+                  <span>Identity</span>
+                  <small>Become cleaner</small>
                 </button>
               </div>
             </div>
@@ -168,9 +212,9 @@
                 <span class="pulse-dot" aria-hidden="true"></span>
                 <span id="insightLabel">Current path</span>
               </div>
-              <h3 id="insightTitle">Content Creation Loop</h3>
-              <p id="insightBody">Shape raw ideas into clear, trustworthy output with a human approval gate.</p>
-              <span class="insight-meta" id="insightMeta">Best for publishing systems</span>
+              <h3 id="insightTitle">Daily ThinkShift Reset</h3>
+              <p id="insightBody">Turn empty fatigue into one clear choice that protects your future self.</p>
+              <span class="insight-meta" id="insightMeta">Best for today</span>
             </div>
             <ol class="builder-steps" aria-label="Guided path">
               <li class="is-active" id="progressMission"><span>1</span> Choose mission</li>
@@ -179,8 +223,12 @@
             </ol>
 
             <div class="field">
-              <label for="loopType">Mission field</label>
+              <label for="loopType">Reset field</label>
               <select id="loopType">
+                <option value="thinkshift">Daily ThinkShift</option>
+                <option value="busytrap">Busy trap audit</option>
+                <option value="environment">Environment reset</option>
+                <option value="identity">Identity upgrade</option>
                 <option value="content">Content creation</option>
                 <option value="product">Product improvement</option>
                 <option value="marketing">Marketing expansion</option>
@@ -192,26 +240,29 @@
                 <option value="pathfinder">AI path finder</option>
                 <option value="safeloop">Safe loop gates</option>
                 <option value="virallab">Viral signal lab</option>
+                <option value="instaprod">Instagram productizer</option>
                 <option value="arsenal">Open-source arsenal</option>
+                <option value="caveman">Caveman compression</option>
+                <option value="agentic">Agentic engineering</option>
                 <option value="custom">Custom loop</option>
               </select>
-              <p class="field-note">Each field preloads an opinionated starter blueprint you can edit immediately.</p>
+              <p class="field-note">Each field preloads an opinionated Neo-style reset you can edit immediately.</p>
             </div>
 
             <div class="field">
               <label for="objective">Objective</label>
-              <textarea id="objective" rows="3">Turn raw ideas into clear, enlightened content that people can understand, trust, and follow.</textarea>
-              <p class="field-note">Write the result you want the system to create, not the task you want the AI to perform.</p>
+              <textarea id="objective" rows="3">Identify one habit that keeps me busy but not free, then replace it with one aligned action today.</textarea>
+              <p class="field-note">Write the way of being you are practicing, not only the task you want to finish.</p>
             </div>
 
             <div class="field-grid">
               <div class="field">
                 <label for="metric">Success signal</label>
-                <textarea id="metric" rows="2">The output is clear, useful, emotionally grounded, and ready to publish.</textarea>
+                <textarea id="metric" rows="2">The day ends with less empty fatigue, one clearer priority, and one action my future self respects.</textarea>
               </div>
               <div class="field">
                 <label for="boundary">Human boundary</label>
-                <textarea id="boundary" rows="2">Ask Neo before publishing, spending money, or making public promises.</textarea>
+                <textarea id="boundary" rows="2">Do not turn this into self-criticism. The goal is awareness, redesign, and one clean move.</textarea>
               </div>
             </div>
 
@@ -241,73 +292,216 @@
       <section class="signal-band" aria-labelledby="signal-title">
         <div class="signal-layout">
           <article class="signal-copy">
-            <p class="section-kicker">Eight signals, one app</p>
-            <h2 id="signal-title">Loops, movement, cleaner flow, learning paths, safe gates, viral labs, and an open-source arsenal.</h2>
+            <p class="section-kicker">Original Neo rewrite</p>
+            <h2 id="signal-title">The life you want is usually blocked by a pattern you keep calling normal.</h2>
             <p>
-              The first signal is the loop: stop repeating prompts and design systems that work while you
-              lead. The second signal is Tokyo: agentic work is becoming live, social, workshop-driven, and
-              practical. The third signal is FlashAttention: intelligence gets stronger when the system
-              respects the real bottleneck. The fourth signal is the masterclass: people need a simple path
-              from beginner to automation operator. The fifth signal is the guide library: learning becomes
-              easy when people can choose the doorway that matches their goal. The sixth signal is safety:
-              every loop needs a gate that can reject weak work and send it back. The seventh signal is
-              creator growth: package useful tools, invite the right comment, and deliver value without spam.
-              The eighth signal is source access: every serious builder should be able to inspect the GitHub
-              repo, understand the tradeoff, and choose the tool that fits the mission.
+              Empty fatigue feels heavy because it spends your life without buying your future. Gratifying
+              exhaustion feels different: it comes from clean effort, honest priorities, and a day that moved
+              the soul forward. The shift is not to do more. The shift is to stop feeding the systems that
+              train you to become someone you do not respect.
             </p>
             <div class="fusion-line">
               <i data-lucide="git-merge"></i>
-              <span>Neo Potter synthesis: Build Living Systems with consciousness, clarity, cleaner flow, teachable steps, guided choice, safe limits, ethical growth, and open-source leverage.</span>
+              <span>Neo Potter synthesis: change the thought, change the room, change the repeated action. That is how a new way of being becomes real.</span>
             </div>
           </article>
           <aside class="signal-card" aria-label="Tokyo signal actions">
             <div class="signal-source">
               <i data-lucide="radio"></i>
-              <span>Latest signal: Comment BUILD</span>
+              <span>Today signal: distraction audit</span>
             </div>
             <p>
-              Neo Potter translation: do not chase the algorithm blindly. Study the signal, package the value,
-              invite action, and keep human taste as the final gate.
+              Neo Potter translation: if a habit keeps you occupied but smaller, it is not your path. Audit it,
+              remove one support beam, and replace it with a choice your future self would thank you for.
             </p>
             <div class="signal-actions">
               <button class="secondary-button" id="applyTokyoSignal" type="button">
                 <i data-lucide="wand-sparkles"></i>
-                Apply Tokyo
+                Daily Reset
               </button>
               <button class="secondary-button" id="applyBottleneckSignal" type="button">
                 <i data-lucide="scan-search"></i>
-                Find Bottleneck
+                Busy Trap
               </button>
-              <a class="link-button" href="https://x.com/i/status/2064885111477219664" target="_blank" rel="noreferrer">
-                <i data-lucide="external-link"></i>
-                Tokyo
-              </a>
-              <a class="link-button" href="https://substack.com/@aiengineeringinsider/note/c-282010245?r=8ai88k" target="_blank" rel="noreferrer">
-                <i data-lucide="external-link"></i>
-                FlashAttention
-              </a>
               <button class="secondary-button" id="applyPathSignal" type="button">
-                <i data-lucide="route"></i>
-                Path Finder
+                <i data-lucide="home"></i>
+                Environment
               </button>
-              <a class="link-button" href="https://x.com/i/status/2070748966262866312" target="_blank" rel="noreferrer">
-                <i data-lucide="external-link"></i>
-                Guide Library
-              </a>
               <button class="secondary-button" id="applySafeLoopSignal" type="button">
-                <i data-lucide="shield-check"></i>
-                Safe Gates
+                <i data-lucide="user-round-check"></i>
+                Identity
               </button>
               <button class="secondary-button" id="applyViralSignal" type="button">
                 <i data-lucide="messages-square"></i>
                 Viral Lab
               </button>
+              <button class="secondary-button" id="applyInstaProdSignal" type="button">
+                <i data-lucide="smartphone"></i>
+                Insta App
+              </button>
               <button class="secondary-button" id="applyArsenalSignal" type="button">
                 <i data-lucide="github"></i>
                 Arsenal
               </button>
+              <button class="secondary-button" id="applyCavemanSignal" type="button">
+                <i data-lucide="hammer"></i>
+                Caveman
+              </button>
+              <button class="secondary-button" id="applyAgenticSignal" type="button">
+                <i data-lucide="factory"></i>
+                Agentic
+              </button>
+              <a class="link-button" href="https://neo-caveman.netlify.app" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Caveman App
+              </a>
+              <a class="link-button" href="https://public-gilt-kappa.vercel.app/" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Agentic App
+              </a>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section class="habits-band" aria-labelledby="habits-title">
+        <div class="caveman-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Three daily patterns</p>
+            <h2 id="habits-title">The habit is not the enemy. The unconscious loop is.</h2>
+            <p>
+              This is the clean rewrite of the source idea: stop fighting yourself with willpower alone.
+              Change the structure that keeps pulling you back.
+            </p>
+          </div>
+          <div class="caveman-grid" aria-label="Daily habits that hold people back">
+            <article class="caveman-card highlight-card">
+              <span>01</span>
+              <h3>The Busy Trap</h3>
+              <p>You keep proving you are working while avoiding the one decision that would actually change the day.</p>
+              <button class="link-button inline-action" id="applyBusyTrapCard" type="button">
+                <i data-lucide="scan-search"></i>
+                Build Reset
+              </button>
+            </article>
+            <article class="caveman-card">
+              <span>02</span>
+              <h3>The Wrong Room</h3>
+              <p>You ask discipline to beat an environment that was designed to drain your attention and identity.</p>
+              <button class="link-button inline-action" id="applyEnvironmentCard" type="button">
+                <i data-lucide="home"></i>
+                Build Reset
+              </button>
+            </article>
+            <article class="caveman-card">
+              <span>03</span>
+              <h3>The Old Self</h3>
+              <p>You keep negotiating with the version of you that learned to survive, even though you are ready to lead.</p>
+              <button class="link-button inline-action" id="applyIdentityCard" type="button">
+                <i data-lucide="user-round-check"></i>
+                Build Reset
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="caveman-band agentic-band" aria-labelledby="agentic-title">
+        <div class="caveman-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Agentic engineering</p>
+            <h2 id="agentic-title">AI speed needs rails, proof, and judgment.</h2>
+            <p>
+              The Agentic Engineering Playbook is now part of the Loop Engine stack. Use it when the loop
+              must move beyond vibe coding into tests, modularity, CI, tight feedback, and production-grade
+              review.
+            </p>
+          </div>
+          <div class="caveman-grid" aria-label="Agentic engineering principles">
+            <article class="caveman-card highlight-card">
+              <span>Live app</span>
+              <h3>Agentic Engineering Playbook</h3>
+              <p>Interactive maturity map, readiness scorecard, and workflow prompt builder for disciplined AI engineering.</p>
+              <a href="https://public-gilt-kappa.vercel.app/" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Open Playbook
+              </a>
+            </article>
+            <article class="caveman-card">
+              <span>01</span>
+              <h3>Manage complexity</h3>
+              <p>Keep modules cohesive, interfaces narrow, and context small enough for agents to handle.</p>
+            </article>
+            <article class="caveman-card">
+              <span>02</span>
+              <h3>Optimize learning</h3>
+              <p>Use tests, CI, demos, reviews, and production signals to learn after every change.</p>
+            </article>
+            <article class="caveman-card">
+              <span>03</span>
+              <h3>Constrain speed</h3>
+              <p>Let agents generate fast, but make deterministic gates decide what survives.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyAgenticStack" type="button">
+              <i data-lucide="factory"></i>
+              Build Agentic Loop
+            </button>
+            <a class="link-button" href="https://public-gilt-kappa.vercel.app/" target="_blank" rel="noreferrer">
+              <i data-lucide="external-link"></i>
+              Open Live App
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="caveman-band" aria-labelledby="caveman-title">
+        <div class="caveman-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Caveman compression</p>
+            <h2 id="caveman-title">Full reasoning. Small mouth. Visible proof.</h2>
+            <p>
+              Caveman is now part of the Loop Engine stack. Use it when the loop needs less narration,
+              fewer wasted tokens, faster handoffs, and cleaner operator reports.
+            </p>
+          </div>
+          <div class="caveman-grid" aria-label="Caveman compression principles">
+            <article class="caveman-card highlight-card">
+              <span>Live app</span>
+              <h3>neo-caveman.netlify.app</h3>
+              <p>The dedicated Caveman web app includes the prompt compressor, install commands, and operating rules.</p>
+              <a href="https://neo-caveman.netlify.app" target="_blank" rel="noreferrer">
+                <i data-lucide="external-link"></i>
+                Open Caveman
+              </a>
+            </article>
+            <article class="caveman-card">
+              <span>01</span>
+              <h3>Think full</h3>
+              <p>Do not weaken reasoning, checks, or engineering judgment.</p>
+            </article>
+            <article class="caveman-card">
+              <span>02</span>
+              <h3>Speak compressed</h3>
+              <p>Say file, change, result, blocker, and proof. Drop padding.</p>
+            </article>
+            <article class="caveman-card">
+              <span>03</span>
+              <h3>Protect context</h3>
+              <p>Save tokens for code, decisions, tests, links, and durable memory.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyCavemanStack" type="button">
+              <i data-lucide="hammer"></i>
+              Build Caveman Loop
+            </button>
+            <a class="link-button" href="https://neo-caveman.netlify.app" target="_blank" rel="noreferrer">
+              <i data-lucide="external-link"></i>
+              Open Live App
+            </a>
+          </div>
         </div>
       </section>
 
@@ -315,117 +509,27 @@
         <div class="arsenal-layout">
           <div class="path-heading">
             <p class="section-kicker">Open-source arsenal</p>
-            <h2 id="arsenal-title">Choose the GitHub tool that matches the mission.</h2>
+            <h2 id="arsenal-title">Choose the GitHub tool set that matches the mission.</h2>
             <p>
-              The screenshot stack becomes a usable builder map: finance agents, AI chat, media generation,
-              inbox automation, browser agents, ad audits, and HTML-to-video. Open the repo, inspect the setup,
-              then build one small safe experiment.
+              The Git Links Vault now lives inside the Loop Engine as one searchable section: automation,
+              career growth, market research, creative AI, project repos, and operator references without
+              repeated topics. Search by mission, choose a set, then open the repo that fits the job.
             </p>
           </div>
-          <div class="arsenal-switchboard" aria-label="Open-source mission shortcuts">
-            <a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noreferrer">Trading agent</a>
-            <a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noreferrer">Market debate</a>
-            <a href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noreferrer">Finance terminal</a>
-            <a href="https://github.com/danny-avila/LibreChat" target="_blank" rel="noreferrer">AI chat hub</a>
-            <a href="https://github.com/Anil-matcha/Open-Higgsfield-AI" target="_blank" rel="noreferrer">Media studio</a>
-            <a href="https://github.com/Open-LLM-VTuber/open-llm-vtuber" target="_blank" rel="noreferrer">AI companion</a>
-            <a href="https://github.com/AgriciDaniel/claude-ads" target="_blank" rel="noreferrer">Ad audit</a>
-            <a href="https://github.com/cloudflare/agentic-inbox" target="_blank" rel="noreferrer">Email agent</a>
-            <a href="https://github.com/daijro/camoufox" target="_blank" rel="noreferrer">Browser agent</a>
-            <a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noreferrer">Video pipeline</a>
+          <div class="arsenal-metrics" aria-label="Merged GitHub vault stats">
+            <span><strong id="arsenalLinkCount">44</strong> unique links</span>
+            <span><strong id="arsenalSetCount">7</strong> tidy sets</span>
+            <span><strong>0</strong> duplicate topics</span>
           </div>
-          <div class="arsenal-grid" aria-label="Open-source AI tools with GitHub links">
-            <article class="tool-card finance">
-              <div class="tool-topline"><span>Finance</span><strong>01</strong></div>
-              <h3>AutoHedge</h3>
-              <p>Autonomous hedge-fund style agents for market research, validation, risk, and trade execution.</p>
-              <a href="https://github.com/The-Swarm-Corporation/AutoHedge" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card finance">
-              <div class="tool-topline"><span>Finance</span><strong>02</strong></div>
-              <h3>Vibe Trading</h3>
-              <p>Finance research agents, trading skills, market analysis, and debate-before-action workflows.</p>
-              <a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card research">
-              <div class="tool-topline"><span>Research</span><strong>03</strong></div>
-              <h3>Fincept Terminal</h3>
-              <p>Bloomberg-style open-source finance terminal with market analytics and 100+ data connectors.</p>
-              <a href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card models">
-              <div class="tool-topline"><span>Models</span><strong>04</strong></div>
-              <h3>LibreChat</h3>
-              <p>Self-hosted chat platform for many AI providers, agents, MCP, artifacts, and private workflows.</p>
-              <a href="https://github.com/danny-avila/LibreChat" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card media">
-              <div class="tool-topline"><span>Media</span><strong>05</strong></div>
-              <h3>Open Higgsfield AI</h3>
-              <p>Open image and video studio with 200+ models for generation, editing, lip sync, and self-hosting.</p>
-              <a href="https://github.com/Anil-matcha/Open-Higgsfield-AI" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card companion">
-              <div class="tool-topline"><span>Companion</span><strong>06</strong></div>
-              <h3>Open LLM VTuber</h3>
-              <p>Voice-interactive desktop AI companion with Live2D, visual perception, and local/offline options.</p>
-              <a href="https://github.com/Open-LLM-VTuber/open-llm-vtuber" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card growth">
-              <div class="tool-topline"><span>Growth</span><strong>07</strong></div>
-              <h3>Claude Ads</h3>
-              <p>Paid ads audit skill for Google, Meta, YouTube, LinkedIn, TikTok, Microsoft, and Apple Ads.</p>
-              <a href="https://github.com/AgriciDaniel/claude-ads" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card inbox">
-              <div class="tool-topline"><span>Inbox</span><strong>08</strong></div>
-              <h3>Agentic Inbox</h3>
-              <p>Cloudflare-powered self-hosted email client where an AI agent can read, search, and draft replies.</p>
-              <a href="https://github.com/cloudflare/agentic-inbox" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card browser">
-              <div class="tool-topline"><span>Browser</span><strong>09</strong></div>
-              <h3>Camoufox Browser</h3>
-              <p>Open-source anti-detect browser built for web scraping and AI agents with Playwright support.</p>
-              <a href="https://github.com/daijro/camoufox" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
-            <article class="tool-card video">
-              <div class="tool-topline"><span>Video</span><strong>10</strong></div>
-              <h3>Hyperframes</h3>
-              <p>Write HTML, CSS, and animations, then render deterministic MP4 videos for agents and pipelines.</p>
-              <a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noreferrer">
-                <i data-lucide="github"></i>
-                GitHub
-              </a>
-            </article>
+          <div class="arsenal-controls" aria-label="Find GitHub tools">
+            <label class="arsenal-search" for="arsenalSearch">
+              <i data-lucide="search"></i>
+              <input id="arsenalSearch" type="search" placeholder="Search repos, topics, use cases..." autocomplete="off" />
+            </label>
+            <div class="arsenal-filter" id="arsenalFilter" aria-label="Topic filters"></div>
           </div>
+          <div class="arsenal-switchboard" id="arsenalSwitchboard" aria-label="GitHub link sets"></div>
+          <div class="arsenal-grid" id="arsenalGrid" aria-label="Merged open-source AI tools with GitHub links"></div>
           <div class="arsenal-flow" aria-label="How to use the open-source arsenal">
             <article>
               <i data-lucide="target"></i>
@@ -526,6 +630,66 @@
               <i data-lucide="messages-square"></i>
               Start Viral Signal Lab
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="insta-band" aria-labelledby="insta-title">
+        <div class="viral-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Instagram productizer</p>
+            <h2 id="insta-title">Turn a post into a usable mini app.</h2>
+            <p>
+              When the social signal is strong, do not stop at saving the post. Extract the transformation,
+              design the workflow, and ship a small app that helps the viewer get the result safely.
+            </p>
+          </div>
+          <div class="productizer-panel" aria-label="Instagram post to web app workflow">
+            <article class="productizer-card highlight-card">
+              <span>01</span>
+              <h3>Signal</h3>
+              <p>Capture the post URL, core promise, audience pain, and the reason people would save or share it.</p>
+            </article>
+            <article class="productizer-card">
+              <span>02</span>
+              <h3>Workflow</h3>
+              <p>Convert the idea into inputs, choices, feedback, and one useful output the user can keep.</p>
+            </article>
+            <article class="productizer-card">
+              <span>03</span>
+              <h3>Interface</h3>
+              <p>Make the first screen the tool itself: fast, mobile-ready, visual, and focused on action.</p>
+            </article>
+            <article class="productizer-card">
+              <span>04</span>
+              <h3>Launch Gate</h3>
+              <p>Check originality, claims, source credit, consent, and platform rules before publishing.</p>
+            </article>
+          </div>
+          <div class="insta-builder" aria-label="Mini app concept generated from the Instagram signal">
+            <div>
+              <span class="app-chip">Mini App Concept</span>
+              <h3>Post-To-Product Sprint</h3>
+              <p>
+                Paste a social post, define the audience, choose the output type, and generate a launch-ready
+                app blueprint with safety notes.
+              </p>
+            </div>
+            <ol>
+              <li>Input: post URL, audience, promise, proof.</li>
+              <li>Output: app screen plan, interaction flow, CTA, launch checklist.</li>
+              <li>Gate: human approval before public publishing or outreach.</li>
+            </ol>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyInstaProductizer" type="button">
+              <i data-lucide="smartphone"></i>
+              Build Instagram Web App
+            </button>
+            <a class="link-button" href="https://www.instagram.com/p/DaM_-hTFCeA/" target="_blank" rel="noreferrer">
+              <i data-lucide="external-link"></i>
+              Source Post
+            </a>
           </div>
         </div>
       </section>
@@ -736,6 +900,16 @@
           </aside>
         </div>
       </section>
+
+      <footer class="site-footer" aria-label="Neo Potter footer">
+        <div class="footer-inner">
+          <p class="footer-kicker">Neo Potter Loop Engine</p>
+          <p class="footer-motto">Think with wisdom. Build with clarity. Ship living systems.</p>
+          <a class="footer-domain" href="https://neopotters.com" target="_blank" rel="noreferrer">
+            neopotters.com
+          </a>
+        </div>
+      </footer>
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
