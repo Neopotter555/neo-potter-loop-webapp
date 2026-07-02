@@ -44,6 +44,24 @@ const requiredGithubLinks = [
   "https://github.com/browser-use/browser-use",
   "https://github.com/punkpeye/awesome-mcp-servers",
   "https://github.com/eyaltoledano/claude-task-master",
+  "https://github.com/donnemartin/system-design-primer",
+  "https://github.com/public-apis/public-apis",
+  "https://github.com/sindresorhus/awesome",
+  "https://github.com/codecrafters-io/build-your-own-x",
+  "https://github.com/kamranahmedse/developer-roadmap",
+  "https://github.com/EbookFoundation/free-programming-books",
+  "https://github.com/jwasham/coding-interview-university",
+  "https://github.com/OpenBB-finance/OpenBB",
+  "https://github.com/AI4Finance-Foundation/FinGPT",
+  "https://github.com/microsoft/qlib",
+  "https://github.com/AI4Finance-Foundation/FinRL",
+  "https://github.com/polakowo/vectorbt",
+  "https://github.com/mementum/backtrader",
+  "https://github.com/stefan-jansen/zipline-reloaded",
+  "https://github.com/JerBouma/FinanceDatabase",
+  "https://github.com/ranaroussi/yfinance",
+  "https://github.com/TA-Lib/ta-lib-python",
+  "https://github.com/harry0703/MoneyPrinterTurbo",
   "https://github.com/The-Swarm-Corporation/AutoHedge",
   "https://github.com/HKUDS/Vibe-Trading",
   "https://github.com/Fincept-Corporation/FinceptTerminal",
@@ -60,7 +78,8 @@ const requiredGithubLinks = [
   "https://github.com/openclaw/openclaw/releases/latest",
   "https://github.com/openclaw/openclaw/issues/87331",
   "https://github.com/openclaw/openclaw/pull/87272",
-  "https://github.com/openclaw/openclaw/commit/42e9504"
+  "https://github.com/openclaw/openclaw/commit/42e9504",
+  "https://github.com/JuliusBrussee/caveman"
 ];
 
 const source = `${html}\n${app}`;
@@ -77,6 +96,12 @@ for (const link of requiredGithubLinks) {
 const duplicateLinks = requiredGithubLinks.filter((link, index) => requiredGithubLinks.indexOf(link) !== index);
 if (duplicateLinks.length) {
   throw new Error(`Duplicate required GitHub links: ${duplicateLinks.join(", ")}`);
+}
+
+const githubUrls = [...source.matchAll(/https:\/\/github\.com\/[^"'`\s<)]+/g)].map((match) => match[0]);
+const repeatedGithubUrls = githubUrls.filter((link, index) => githubUrls.indexOf(link) !== index);
+if (repeatedGithubUrls.length) {
+  throw new Error(`Repeated GitHub links in app source: ${[...new Set(repeatedGithubUrls)].join(", ")}`);
 }
 
 console.log("Neo Potter Loop web app build verified.");
