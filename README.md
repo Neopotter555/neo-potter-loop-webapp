@@ -1,6 +1,6 @@
 # Neo Potter Loop Engine
 
-A complete static web app for designing AI loops in the Neo Potter style: vision first, systems second, automation third, and human wisdom above the machine.
+A static web app for designing living AI loops in the Neo Potter style: vision first, systems second, automation third, proof before trust, and human wisdom above the machine.
 
 Live app:
 
@@ -9,25 +9,32 @@ https://neo-potter-loop-engine.netlify.app
 ## What Is Included
 
 - Living AI Loop Builder
-- Premium first-run onboarding with guided paths
+- Daily reset starter paths
 - Dynamic mission guidance for each loop type
-- Mini Masterclass path
-- AI Path Finder
+- Agentic Engineering loop prompt that preserves important context
 - Safe Loop Gates
-- Viral Signal Lab
 - Open-Source Arsenal with direct GitHub links
 - Copy and Markdown export
 - Mobile responsive design
-- Netlify-ready config
+- Netlify and Vercel static deploy config
 - Build-time verification for all required GitHub links
 
 ## Product Flow
 
-1. Choose a starter path: Masterclass, Arsenal, or Safe Gates.
+1. Choose a starter path: Busy Trap, Environment, Identity, or another loop from the selector.
 2. Adjust the mission, success signal, human boundary, and rhythm.
 3. Generate the Living Loop Blueprint.
 4. Copy or export the Markdown system.
-5. Use the GitHub Arsenal links for deeper open-source experiments.
+5. Use the Agentic Engineering loop when the system should keep improving itself without losing context.
+6. Use the GitHub Arsenal links for deeper open-source experiments.
+
+## Agentic Loop Rule
+
+The app should remove filler, duplicated UI, stale files, and weak information architecture. It should not remove important reasoning, source data, decisions, links, failed checks, safety gates, or user intent just to make the output shorter.
+
+## Next-Level Autonomous Prompt
+
+Use [NEXT_LEVEL_PROMPT.md](NEXT_LEVEL_PROMPT.md) when the project needs a full autonomous upgrade pass. It tells the agent to inspect the repo, research current official docs when needed, improve one bounded surface, rebuild, debug, browser-test desktop and mobile, preserve approval gates, and report proof before trust.
 
 ## Open-Source Arsenal Links
 
@@ -47,14 +54,25 @@ https://neo-potter-loop-engine.netlify.app
 ```bash
 npm install
 npm run build
+npm test
 npm start
 ```
 
 The app serves from `public/`.
 
+## Verification
+
+`npm run build` and `npm test` run the same static verification script:
+
+- Confirms required app files and assets exist.
+- Confirms `index.html` references the CSS, JS, and hero image.
+- Confirms the start action links to the builder.
+- Confirms all required GitHub Arsenal links are present exactly once.
+- Blocks the removed prompt-compressor route from re-entering the app.
+
 ## Deploy
 
-The project includes `netlify.toml`.
+The project includes `netlify.toml` and `vercel.json`. Netlify headers live in `netlify.toml` only, to avoid duplicate header configuration.
 
 ```bash
 npm run deploy

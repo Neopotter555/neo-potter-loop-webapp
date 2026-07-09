@@ -91,6 +91,7 @@ const githubArsenalTools = githubArsenalSets.flatMap((set) => set.tools.map((too
 const githubArsenalResources = githubArsenalTools.map((tool) => [tool.name, tool.url]);
 const githubArsenalCategories = ["All", ...Array.from(new Set(githubArsenalTools.map((tool) => tool.category)))];
 let activeArsenalCategory = "All";
+let activeArsenalSet = githubArsenalSets[0]?.name || "";
 
 const templates = {
   thinkshift: {
@@ -229,26 +230,19 @@ const templates = {
     actions: ["Choose the use case: coding, agents, finance, chat, media, inbox, browser automation, project handoff, or ops reference.", "Open the matching GitHub link and check license, setup, activity, and security notes.", "Pick one tiny first experiment that can run without risking money, accounts, or private data.", "Add a safety gate for credentials, costs, platform rules, and human approval.", "Save the working stack as a reusable builder recipe."],
     resources: githubArsenalResources
   },
-  caveman: {
-    title: "Caveman Compression Loop",
-    signal: "Inspired by Caveman: reduce verbal packaging without reducing reasoning. Brain big. Mouth small. Output useful.",
-    objective: "Convert verbose AI-agent work into short execution updates that preserve reasoning, reduce token waste, and end with proof.",
-    metric: "Each cycle reports only the useful facts: target, change, result, blocker, proof, and next move.",
-    boundary: "Do not compress away safety, uncertainty, user approval, test failures, or important context.",
-    actions: ["Read the task fully and reason normally before writing.", "Remove filler, pleasantries, repeated context, and unnecessary narration.", "Return concise execution language: file, change, result, blocker, proof.", "Use the Caveman app when prompts need compression or install commands.", "End with a link, test, screenshot, build result, or exact next action."],
-    resources: [
-      ["Caveman Web App", "https://neo-caveman.netlify.app"],
-      ["Caveman GitHub", "https://github.com/JuliusBrussee/caveman"]
-    ]
-  },
   agentic: {
     title: "Agentic Engineering Loop",
-    signal: "Inspired by the Agentic Engineering Playbook: AI commoditizes syntax, not engineering judgment. Speed needs tests, CI, modularity, and feedback loops.",
-    objective: "Turn AI coding speed into production-grade engineering flow by wrapping agents in clear goals, bounded context, deterministic checks, and human review.",
-    metric: "Every cycle ships a small verified change with passing checks, clear boundaries, low coupling, and a short proof report.",
-    boundary: "Do not let the agent expand scope, bypass tests, weaken security, hide uncertainty, or touch production without a human approval gate.",
-    actions: ["Define the goal, module boundary, expected behavior, and proof before generation begins.", "Read the relevant code and isolate the smallest safe change.", "Ask the agent to implement inside that boundary without broad refactors.", "Run tests, build, lint, and review coupling, security, and user-facing behavior.", "Save the lesson from the merge, failure, or review so the next cycle starts smarter."],
+    signal: "A living engineering system improves itself by preserving context, making bounded changes, and proving what changed.",
+    objective: "Maintain and upgrade the web app as a living product: inspect the real surface, research current official docs when needed, remove slop, preserve important context, and ship verified improvements that move the project toward best-in-category usefulness.",
+    metric: "Every cycle ends with a working surface, passing checks, desktop/mobile evidence, no hidden safety regressions, a concise observer report, and a clearer next move.",
+    boundary: "Never compress away user intent, decisions, data, links, failed checks, safety boundaries, uncertainty, or public-impact approval gates. Stop for secrets, paid services, domains, durable storage architecture, publishing, deletion, production account changes, or major repositioning.",
+    actions: ["Observe the app, source, docs, tests, config, deploy assumptions, and current official platform docs when behavior may have changed.", "Rank improvements by user value, trust, risk reduction, speed, and proof; choose one coherent high-leverage upgrade per cycle.", "Implement inside the existing product language and visual system unless the user explicitly asks for design changes.", "Verify with npm run build, npm test, desktop/mobile browser checks, console review, link validation, copy/export behavior, and Core Web Vitals awareness.", "Report what changed, proof, risks, score, and the next best move; update the loop prompt only from verified lessons."],
     resources: [
+      ["OpenAI Agents SDK", "https://developers.openai.com/api/docs/guides/agents"],
+      ["OpenAI Agent Guide", "https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/"],
+      ["LangGraph Overview", "https://docs.langchain.com/oss/python/langgraph/overview"],
+      ["Web Vitals", "https://web.dev/articles/vitals"],
+      ["Vercel Speed Insights", "https://vercel.com/docs/speed-insights"],
       ["Agentic Engineering Playbook", "https://public-gilt-kappa.vercel.app/"],
       ["Original Build with AI article", "https://open.substack.com/pub/packtbuildwithai/p/build-with-ai-12-the-agentic-engineering?utm_source=share&utm_medium=android&r=8ai88k"]
     ]
@@ -348,15 +342,10 @@ const guideCopy = {
     body: "Choose the right GitHub repo, inspect the tradeoffs, and run one small safe test.",
     meta: "Best for open-source experiments"
   },
-  caveman: {
-    label: "Compression system",
-    body: "Keep the thinking deep while shrinking the output into proof-first execution language.",
-    meta: "Best for saving tokens and reducing noise"
-  },
   agentic: {
     label: "Engineering system",
-    body: "Turn AI speed into reliable software by bounding context and forcing proof through tests, CI, and review gates.",
-    meta: "Best for production-grade agent work"
+    body: "Keep the system alive by preserving context, making bounded upgrades, and proving each cycle.",
+    meta: "Best for living product maintenance"
   },
   custom: {
     label: "Custom system",
@@ -781,19 +770,13 @@ const buttons = {
   applyIdentityCard: document.querySelector("#applyIdentityCard"),
   applyTokyoSignal: document.querySelector("#applyTokyoSignal"),
   applyBottleneckSignal: document.querySelector("#applyBottleneckSignal"),
-  applyMasterclassSignal: document.querySelector("#applyMasterclassSignal"),
   applyPathSignal: document.querySelector("#applyPathSignal"),
-  applyPathfinderSignal: document.querySelector("#applyPathfinderSignal"),
   applySafeLoopSignal: document.querySelector("#applySafeLoopSignal"),
   applyGateSignal: document.querySelector("#applyGateSignal"),
   applyViralSignal: document.querySelector("#applyViralSignal"),
-  applyViralLabSignal: document.querySelector("#applyViralLabSignal"),
   applyInstaProdSignal: document.querySelector("#applyInstaProdSignal"),
-  applyInstaProductizer: document.querySelector("#applyInstaProductizer"),
   applyArsenalSignal: document.querySelector("#applyArsenalSignal"),
   applyArsenalStack: document.querySelector("#applyArsenalStack"),
-  applyCavemanSignal: document.querySelector("#applyCavemanSignal"),
-  applyCavemanStack: document.querySelector("#applyCavemanStack"),
   applyAgenticSignal: document.querySelector("#applyAgenticSignal"),
   applyAgenticStack: document.querySelector("#applyAgenticStack")
 };
@@ -918,7 +901,7 @@ function applyLanguageStatic() {
   setText(".habits-band .section-kicker", copy.habitsKicker);
   setText("#habits-title", copy.habitsTitle);
   setText(".habits-band .path-heading p:last-child", copy.habitsBody);
-  document.querySelectorAll(".habits-band .caveman-card").forEach((node, index) => {
+  document.querySelectorAll(".habits-band .system-card").forEach((node, index) => {
     const item = copy.habitCards[index];
     if (!item) return;
     node.querySelector("h3").textContent = item[0];
@@ -1033,7 +1016,8 @@ function renderArsenal() {
         .filter((tool) => arsenalMatches(tool, set.name, searchTerm));
       return { ...set, tools };
     })
-    .filter((set) => set.tools.length);
+    .filter((set) => set.tools.length)
+    .filter((set) => searchTerm || activeArsenalCategory !== "All" || set.name === activeArsenalSet);
 
   document.querySelector("#arsenalLinkCount").textContent = String(uniqueTools.size);
   document.querySelector("#arsenalSetCount").textContent = String(githubArsenalSets.length);
@@ -1053,11 +1037,19 @@ function renderArsenal() {
   }
 
   switchboard.innerHTML = githubArsenalSets.map((set) => `
-    <a href="#${escapeHtml(arsenalSetId(set.name))}">
+    <button type="button" class="${set.name === activeArsenalSet ? "is-active" : ""}" data-arsenal-set="${escapeHtml(set.name)}">
       <span>${escapeHtml(set.name)}</span>
       <small>${set.tools.filter((tool) => uniqueTools.has(tool.url)).length} links</small>
-    </a>
+    </button>
   `).join("");
+  switchboard.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      activeArsenalSet = button.dataset.arsenalSet;
+      activeArsenalCategory = "All";
+      if (search) search.value = "";
+      renderArsenal();
+    });
+  });
 
   grid.innerHTML = visibleSets.length ? visibleSets.map((set) => `
     <section class="arsenal-set" id="${escapeHtml(arsenalSetId(set.name))}" aria-label="${escapeHtml(set.name)}">
@@ -1078,7 +1070,7 @@ function renderArsenal() {
             <h3>${escapeHtml(tool.name)}</h3>
             <p>${escapeHtml(tool.summary)}</p>
             <a href="${escapeHtml(tool.url)}" target="_blank" rel="noreferrer">
-              <i data-lucide="github"></i>
+              <i data-lucide="git-branch"></i>
               ${escapeHtml(linkLabel(tool.url))}
             </a>
           </article>
@@ -1227,7 +1219,7 @@ function saveState() {
     metric: fields.metric.value,
     boundary: fields.boundary.value,
     rhythm: getRhythm(),
-    theme: document.documentElement.dataset.theme || "light"
+    theme: document.documentElement.dataset.theme === "light" ? "light" : "dark"
   };
   localStorage.setItem(storageKey, JSON.stringify(state));
   fields.saveStatus.textContent = t().saved;
@@ -1257,7 +1249,7 @@ function loadState() {
     fields.metric.value = state.metric || templates.thinkshift.metric;
     fields.boundary.value = state.boundary || templates.thinkshift.boundary;
     setRhythm(state.rhythm || "daily");
-    if (state.theme === "dark") document.documentElement.dataset.theme = "dark";
+    if (state.theme === "light") document.documentElement.dataset.theme = "light";
   } catch {
     localStorage.removeItem(storageKey);
   }
@@ -1308,11 +1300,11 @@ function downloadBlueprint() {
 }
 
 function toggleTheme() {
-  const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
   if (next === "dark") {
-    document.documentElement.dataset.theme = "dark";
-  } else {
     document.documentElement.removeAttribute("data-theme");
+  } else {
+    document.documentElement.dataset.theme = "light";
   }
   saveState();
 }
@@ -1349,23 +1341,27 @@ document.querySelectorAll("input[name='rhythm']").forEach((radio) => {
   });
 });
 
-buttons.generate.addEventListener("click", () => {
+function on(control, eventName, handler) {
+  control?.addEventListener(eventName, handler);
+}
+
+on(buttons.generate, "click", () => {
   renderBlueprint();
   setProgress("export");
   scrollToBlueprint();
   toast(t().generated);
 });
-buttons.reset.addEventListener("click", applyTemplate);
-buttons.copy.addEventListener("click", () => {
+on(buttons.reset, "click", applyTemplate);
+on(buttons.copy, "click", () => {
   setProgress("export");
   copyBlueprint();
 });
-buttons.copyTop.addEventListener("click", startMasterclass);
-buttons.download.addEventListener("click", () => {
+on(buttons.copyTop, "click", startMasterclass);
+on(buttons.download, "click", () => {
   setProgress("export");
   downloadBlueprint();
 });
-buttons.theme.addEventListener("click", toggleTheme);
+on(buttons.theme, "click", toggleTheme);
 function startMasterclass(event) {
   event?.preventDefault();
   fields.loopType.value = "thinkshift";
@@ -1375,9 +1371,9 @@ function startMasterclass(event) {
   toast("Daily reset started");
 }
 
-buttons.startGuidedBuild.addEventListener("click", startMasterclass);
-buttons.onboardMasterclass.addEventListener("click", startMasterclass);
-buttons.applyTokyoSignal.addEventListener("click", () => {
+on(buttons.startGuidedBuild, "click", startMasterclass);
+on(buttons.onboardMasterclass, "click", startMasterclass);
+on(buttons.applyTokyoSignal, "click", () => {
   fields.loopType.value = "thinkshift";
   setRhythm("daily");
   applyTemplate();
@@ -1391,9 +1387,8 @@ function startBusyTrap() {
   scrollToBlueprint();
   toast("Busy trap audit started");
 }
-buttons.applyBottleneckSignal.addEventListener("click", startBusyTrap);
-buttons.applyBusyTrapCard.addEventListener("click", startBusyTrap);
-buttons.applyMasterclassSignal.addEventListener("click", startMasterclass);
+on(buttons.applyBottleneckSignal, "click", startBusyTrap);
+on(buttons.applyBusyTrapCard, "click", startBusyTrap);
 function startEnvironmentReset() {
   fields.loopType.value = "environment";
   setRhythm("daily");
@@ -1401,10 +1396,9 @@ function startEnvironmentReset() {
   scrollToBlueprint();
   toast("Environment reset started");
 }
-buttons.onboardArsenal.addEventListener("click", startEnvironmentReset);
-buttons.applyPathSignal.addEventListener("click", startEnvironmentReset);
-buttons.applyEnvironmentCard.addEventListener("click", startEnvironmentReset);
-buttons.applyPathfinderSignal.addEventListener("click", startEnvironmentReset);
+on(buttons.onboardArsenal, "click", startEnvironmentReset);
+on(buttons.applyPathSignal, "click", startEnvironmentReset);
+on(buttons.applyEnvironmentCard, "click", startEnvironmentReset);
 function startIdentityReset() {
   fields.loopType.value = "identity";
   setRhythm("daily");
@@ -1412,10 +1406,10 @@ function startIdentityReset() {
   scrollToBlueprint();
   toast("Identity upgrade started");
 }
-buttons.onboardSafeGates.addEventListener("click", startIdentityReset);
-buttons.applySafeLoopSignal.addEventListener("click", startIdentityReset);
-buttons.applyIdentityCard.addEventListener("click", startIdentityReset);
-buttons.applyGateSignal.addEventListener("click", startIdentityReset);
+on(buttons.onboardSafeGates, "click", startIdentityReset);
+on(buttons.applySafeLoopSignal, "click", startIdentityReset);
+on(buttons.applyIdentityCard, "click", startIdentityReset);
+on(buttons.applyGateSignal, "click", startIdentityReset);
 function startViralLab() {
   fields.loopType.value = "virallab";
   setRhythm("weekly");
@@ -1423,8 +1417,7 @@ function startViralLab() {
   scrollToBlueprint();
   toast("Viral Signal Lab started");
 }
-buttons.applyViralSignal.addEventListener("click", startViralLab);
-buttons.applyViralLabSignal.addEventListener("click", startViralLab);
+on(buttons.applyViralSignal, "click", startViralLab);
 function startInstaProductizer() {
   fields.loopType.value = "instaprod";
   setRhythm("weekly");
@@ -1432,8 +1425,7 @@ function startInstaProductizer() {
   scrollToBlueprint();
   toast("Instagram productizer started");
 }
-buttons.applyInstaProdSignal.addEventListener("click", startInstaProductizer);
-buttons.applyInstaProductizer.addEventListener("click", startInstaProductizer);
+on(buttons.applyInstaProdSignal, "click", startInstaProductizer);
 function startArsenal() {
   fields.loopType.value = "arsenal";
   setRhythm("weekly");
@@ -1441,17 +1433,8 @@ function startArsenal() {
   scrollToBlueprint();
   toast("Open-source arsenal started");
 }
-buttons.applyArsenalSignal.addEventListener("click", startArsenal);
-buttons.applyArsenalStack.addEventListener("click", startArsenal);
-function startCaveman() {
-  fields.loopType.value = "caveman";
-  setRhythm("always-on");
-  applyTemplate();
-  scrollToBlueprint();
-  toast("Caveman compression started");
-}
-buttons.applyCavemanSignal.addEventListener("click", startCaveman);
-buttons.applyCavemanStack.addEventListener("click", startCaveman);
+on(buttons.applyArsenalSignal, "click", startArsenal);
+on(buttons.applyArsenalStack, "click", startArsenal);
 function startAgentic() {
   fields.loopType.value = "agentic";
   setRhythm("daily");
@@ -1459,8 +1442,8 @@ function startAgentic() {
   scrollToBlueprint();
   toast("Agentic engineering started");
 }
-buttons.applyAgenticSignal.addEventListener("click", startAgentic);
-buttons.applyAgenticStack.addEventListener("click", startAgentic);
+on(buttons.applyAgenticSignal, "click", startAgentic);
+on(buttons.applyAgenticStack, "click", startAgentic);
 
 loadState();
 applyLanguageStatic();

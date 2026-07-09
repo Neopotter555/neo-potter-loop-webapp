@@ -4,7 +4,9 @@ const required = [
   "public/index.html",
   "public/styles.css",
   "public/app.js",
-  "public/assets/loop-architect-hero.png"
+  "public/favicon.svg",
+  "public/assets/loop-architect-hero.png",
+  "NEXT_LEVEL_PROMPT.md"
 ];
 
 for (const file of required) {
@@ -17,7 +19,8 @@ for (const file of required) {
 
 const html = await readFile("public/index.html", "utf8");
 const app = await readFile("public/app.js", "utf8");
-for (const asset of ["styles.css", "app.js", "loop-architect-hero.png"]) {
+const nextLevelPrompt = await readFile("NEXT_LEVEL_PROMPT.md", "utf8");
+for (const asset of ["styles.css", "app.js", "favicon.svg", "loop-architect-hero.png"]) {
   if (!html.includes(asset)) {
     throw new Error(`index.html does not reference ${asset}`);
   }
@@ -78,13 +81,42 @@ const requiredGithubLinks = [
   "https://github.com/openclaw/openclaw/releases/latest",
   "https://github.com/openclaw/openclaw/issues/87331",
   "https://github.com/openclaw/openclaw/pull/87272",
-  "https://github.com/openclaw/openclaw/commit/42e9504",
-  "https://github.com/JuliusBrussee/caveman"
+  "https://github.com/openclaw/openclaw/commit/42e9504"
 ];
 
 const source = `${html}\n${app}`;
-if (!source.includes("https://neo-caveman.netlify.app")) {
-  throw new Error("Missing required Caveman web app link");
+const legacyToken = "cave" + "man";
+const forbiddenTerms = [
+  `neo-${legacyToken}`,
+  `Julius${"Brussee"}/${legacyToken}`,
+  `Cave${legacyToken.slice(4)} Compression`,
+  `Cave${legacyToken.slice(4)} compression`,
+  `applyCave${legacyToken.slice(4)}`,
+  `value="${legacyToken}"`
+];
+
+for (const term of forbiddenTerms) {
+  if (source.includes(term)) {
+    throw new Error(`Removed compressor path leaked back into source: ${term}`);
+  }
+}
+
+const normalizedPrompt = nextLevelPrompt.toLowerCase();
+const requiredPromptTerms = [
+  "official docs",
+  "no secrets",
+  "human approval",
+  "browser qa",
+  "core web vitals",
+  "npm run build",
+  "npm test",
+  "desktop and mobile"
+];
+
+for (const term of requiredPromptTerms) {
+  if (!normalizedPrompt.includes(term)) {
+    throw new Error(`NEXT_LEVEL_PROMPT.md is missing required gate: ${term}`);
+  }
 }
 
 for (const link of requiredGithubLinks) {
