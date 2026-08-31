@@ -20,6 +20,7 @@ for (const file of required) {
 const html = await readFile("public/index.html", "utf8");
 const app = await readFile("public/app.js", "utf8");
 const nextLevelPrompt = await readFile("NEXT_LEVEL_PROMPT.md", "utf8");
+const source = `${html}\n${app}`;
 for (const asset of ["styles.css", "app.js", "favicon.svg", "loop-architect-hero.png"]) {
   if (!html.includes(asset)) {
     throw new Error(`index.html does not reference ${asset}`);
@@ -35,6 +36,22 @@ if (!startGuidedBuildLinksToTarget) {
 }
 if (!html.includes('id="guided-build"')) {
   throw new Error("Start Guided Build target #guided-build is missing");
+}
+
+const requiredGraphEngineerMarkers = [
+  ["Graph section", 'id="graph-engineer-title"'],
+  ["Graph loop form", 'id="graphLoopForm"'],
+  ["Graph scenario select", 'id="graphScenario"'],
+  ["Graph generator", 'id="generateGraphLoop"'],
+  ["Graph generated output", 'id="graphOutputContent"'],
+  ["Graph template", "graphengineer"],
+  ["ELI5 graph explanation", "Explain Like I'm Five"]
+];
+
+for (const [label, marker] of requiredGraphEngineerMarkers) {
+  if (!source.includes(marker)) {
+    throw new Error(`Missing Graph Engineer marker: ${label}`);
+  }
 }
 
 const requiredGithubLinks = [
@@ -84,7 +101,6 @@ const requiredGithubLinks = [
   "https://github.com/openclaw/openclaw/commit/42e9504"
 ];
 
-const source = `${html}\n${app}`;
 const legacyToken = "cave" + "man";
 const forbiddenTerms = [
   `neo-${legacyToken}`,

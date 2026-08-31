@@ -247,6 +247,14 @@ const templates = {
       ["Original Build with AI article", "https://open.substack.com/pub/packtbuildwithai/p/build-with-ai-12-the-agentic-engineering?utm_source=share&utm_medium=android&r=8ai88k"]
     ]
   },
+  graphengineer: {
+    title: "Graph Engineer Loop",
+    signal: "A graph is a map of important things and the lines between them. Graph engineering turns hidden dependencies into visible decisions.",
+    objective: "Turn a messy problem into nodes, edges, gates, scenarios, and one safe experiment the system can run next.",
+    metric: "A five-year-old can explain what the dots are, how the strings connect, where the risky door is, and what first move should happen.",
+    boundary: "Do not let the graph trigger spending, deletion, public posting, private-data access, account changes, deployment, or irreversible action without a human approval node.",
+    actions: ["Write the problem in one plain sentence.", "Name the nodes: people, tools, files, inputs, decisions, memories, outputs, and risks.", "Draw the edges that show what depends on what and what can run in parallel.", "Mark the gate where money, private data, public action, or deletion needs human approval.", "Run one small experiment and update the graph from evidence."]
+  },
   custom: {
     title: "Custom Living Loop",
     objective: "Create a repeatable intelligent system around the mission Neo chooses.",
@@ -347,6 +355,11 @@ const guideCopy = {
     body: "Keep the system alive by preserving context, making bounded upgrades, and proving each cycle.",
     meta: "Best for living product maintenance"
   },
+  graphengineer: {
+    label: "Graph system",
+    body: "Map the pieces, connections, approval gates, scenarios, and first experiment before the loop acts.",
+    meta: "Best for complex problems"
+  },
   custom: {
     label: "Custom system",
     body: "Build a repeatable loop around the mission, standard, boundary, and rhythm you choose.",
@@ -356,12 +369,55 @@ const guideCopy = {
 
 const resetLoopKeys = ["thinkshift", "busytrap", "environment", "identity"];
 
+const graphScenarioData = {
+  creatorLaunch: {
+    label: "Creator launch",
+    problem: "I have too many ideas, tools, and posts. I need one visible map that shows what to build first and where human approval is required.",
+    nodes: ["Idea inbox", "Audience pain", "Offer promise", "Draft output", "Human review", "Public launch"],
+    edges: ["Idea inbox -> Audience pain", "Audience pain -> Offer promise", "Offer promise -> Draft output", "Draft output -> Human review", "Human review -> Public launch"],
+    gate: "Human review blocks public launch until the offer, claims, tone, and source links are honest.",
+    experiment: "Draft one post and one offer promise, then ask whether the graph shows the real bottleneck."
+  },
+  habitReset: {
+    label: "Habit reset",
+    problem: "I keep repeating one draining habit even though I know what I want to become.",
+    nodes: ["Trigger", "Old response", "Energy leak", "New identity", "Support cue", "Daily proof"],
+    edges: ["Trigger -> Old response", "Old response -> Energy leak", "New identity -> Support cue", "Support cue -> Daily proof", "Daily proof -> New identity"],
+    gate: "If the reset becomes self-criticism, stop and rewrite it as one kind action.",
+    experiment: "Remove one trigger for 24 hours and place one support cue where the old loop usually starts."
+  },
+  agentWorkflow: {
+    label: "AI agent workflow",
+    problem: "An AI agent needs to improve a project without losing context, breaking links, or touching risky actions.",
+    nodes: ["User mission", "Repo scan", "Change plan", "Implementation", "Build gate", "Browser check", "Human report"],
+    edges: ["User mission -> Repo scan", "Repo scan -> Change plan", "Change plan -> Implementation", "Implementation -> Build gate", "Build gate -> Browser check", "Browser check -> Human report"],
+    gate: "Secrets, publishing, deletion, billing, and production account changes must stop for human approval.",
+    experiment: "Run one bounded edit, build locally, and report the exact proof before the next loop begins."
+  },
+  openSourceChoice: {
+    label: "Open-source tool choice",
+    problem: "I found many GitHub tools but do not know which one is safe and useful for the mission.",
+    nodes: ["Mission", "Repo candidates", "License", "Activity", "Security notes", "Tiny local test", "Adoption decision"],
+    edges: ["Mission -> Repo candidates", "Repo candidates -> License", "Repo candidates -> Activity", "Repo candidates -> Security notes", "License -> Tiny local test", "Tiny local test -> Adoption decision"],
+    gate: "No real credentials, money, inbox access, or customer data enters the tool until the local test is proven.",
+    experiment: "Pick one repo, run the smallest local demo, and reject it if setup or risk is unclear."
+  },
+  supportLoop: {
+    label: "Customer support loop",
+    problem: "Customer messages repeat, but the team still needs empathy, accuracy, and human approval for sensitive replies.",
+    nodes: ["Incoming message", "Intent", "Knowledge base", "Draft reply", "Risk check", "Human approval", "Customer response"],
+    edges: ["Incoming message -> Intent", "Intent -> Knowledge base", "Knowledge base -> Draft reply", "Draft reply -> Risk check", "Risk check -> Human approval", "Human approval -> Customer response"],
+    gate: "Refunds, legal claims, health advice, angry customers, and private account changes go to a human.",
+    experiment: "Classify ten sample messages and check whether the gate catches every sensitive case."
+  }
+};
+
 const translations = {
   en: {
     lang: "en",
     title: "Neo Potter Loop Engine",
     description: "A Neo Potter web app for turning scattered ideas, open-source tools, and daily practice into one clear loop engine.",
-    nav: ["Practice", "Patterns", "System", "GitHub Arsenal", "Blueprint"],
+    nav: ["Practice", "Patterns", "System", "Graph", "GitHub Arsenal", "Blueprint"],
     brand: "NeoPotter",
     languageLabel: "Language",
     copy: "Practice",
@@ -442,7 +498,7 @@ const translations = {
     lang: "th",
     title: "Neo Potter Loop Engine",
     description: "เว็บแอปสไตล์ Neo Potter สำหรับเปลี่ยนนิสัยที่รบกวนชีวิตให้เป็นสภาพแวดล้อม ตัวตน และจังหวะประจำวันที่ชัดขึ้น",
-    nav: ["รีเซ็ต", "นิสัย", "ระบบ", "GitHub", "บลูปรินต์"],
+    nav: ["รีเซ็ต", "นิสัย", "ระบบ", "กราฟ", "GitHub", "บลูปรินต์"],
     brand: "NeoPotter",
     languageLabel: "ภาษา",
     copy: "คัดลอก",
@@ -512,7 +568,7 @@ const translations = {
     lang: "ms",
     title: "Neo Potter Loop Engine",
     description: "Aplikasi gaya Neo Potter untuk menukar tabiat yang mengganggu kepada persekitaran, identiti, dan ritma harian yang lebih jelas.",
-    nav: ["Reset", "Tabiat", "Sistem", "GitHub", "Blueprint"],
+    nav: ["Reset", "Tabiat", "Sistem", "Graf", "GitHub", "Blueprint"],
     brand: "NeoPotter",
     languageLabel: "Bahasa",
     copy: "Salin",
@@ -569,7 +625,7 @@ const translations = {
     lang: "zh",
     title: "Neo Potter Loop Engine",
     description: "Neo Potter 风格网页应用，把消耗你的习惯转化为更清晰的环境、身份和每日节奏。",
-    nav: ["重置", "习惯", "系统", "GitHub", "蓝图"],
+    nav: ["重置", "习惯", "系统", "图谱", "GitHub", "蓝图"],
     brand: "NeoPotter",
     languageLabel: "语言",
     copy: "复制",
@@ -778,7 +834,19 @@ const buttons = {
   applyArsenalSignal: document.querySelector("#applyArsenalSignal"),
   applyArsenalStack: document.querySelector("#applyArsenalStack"),
   applyAgenticSignal: document.querySelector("#applyAgenticSignal"),
-  applyAgenticStack: document.querySelector("#applyAgenticStack")
+  applyAgenticStack: document.querySelector("#applyAgenticStack"),
+  applyGraphEngineerSignal: document.querySelector("#applyGraphEngineerSignal"),
+  applyGraphEngineerStack: document.querySelector("#applyGraphEngineerStack")
+};
+
+const graphFields = {
+  form: document.querySelector("#graphLoopForm"),
+  scenario: document.querySelector("#graphScenario"),
+  problem: document.querySelector("#graphProblem"),
+  nodes: document.querySelector("#graphNodes"),
+  edges: document.querySelector("#graphEdges"),
+  outputTitle: document.querySelector("#graph-output-title"),
+  outputContent: document.querySelector("#graphOutputContent")
 };
 
 const storageKey = "neo-potter-loop-engine";
@@ -999,6 +1067,115 @@ function linkLabel(url) {
   return url
     .replace("https://github.com/", "github.com/")
     .replace("https://", "");
+}
+
+function splitGraphLines(value) {
+  return value
+    .split(/\n|,/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function getGraphScenario() {
+  return graphScenarioData[graphFields.scenario?.value] || graphScenarioData.creatorLaunch;
+}
+
+function graphPlanFromForm() {
+  const scenario = getGraphScenario();
+  const nodes = splitGraphLines(graphFields.nodes?.value || scenario.nodes.join("\n"));
+  const edges = splitGraphLines(graphFields.edges?.value || scenario.edges.join("\n"));
+  const problem = graphFields.problem?.value.trim() || scenario.problem;
+
+  return {
+    scenario,
+    problem,
+    nodes: nodes.length ? nodes : scenario.nodes,
+    edges: edges.length ? edges : scenario.edges,
+    eli5: "A graph engineer makes a dot for each important thing, draws a string when two dots affect each other, then puts a stop sign on any string that could hurt people, money, privacy, or trust.",
+    firstMove: scenario.experiment
+  };
+}
+
+function graphMarkdown(plan) {
+  return `# ${plan.scenario.label} Graph Engineer Example
+
+## Explain Like I'm Five
+${plan.eli5}
+
+## Problem
+${plan.problem}
+
+## Nodes
+${plan.nodes.map((node, index) => `${index + 1}. ${node}`).join("\n")}
+
+## Edges
+${plan.edges.map((edge, index) => `${index + 1}. ${edge}`).join("\n")}
+
+## Human Gate
+${plan.scenario.gate}
+
+## First Safe Experiment
+${plan.firstMove}
+`;
+}
+
+function renderGraphOutput(plan) {
+  if (!graphFields.outputContent) return;
+  graphFields.outputTitle.textContent = `${plan.scenario.label} graph loop`;
+  graphFields.outputContent.innerHTML = `
+    <section class="blueprint-block">
+      <h3>Explain Like I'm Five</h3>
+      <p>${escapeHtml(plan.eli5)}</p>
+    </section>
+    <section class="blueprint-block">
+      <h3>Problem</h3>
+      <p>${escapeHtml(plan.problem)}</p>
+    </section>
+    <section class="blueprint-block">
+      <h3>Nodes</h3>
+      <ul>
+        ${plan.nodes.map((node) => `<li>${escapeHtml(node)}</li>`).join("")}
+      </ul>
+    </section>
+    <section class="blueprint-block">
+      <h3>Edges</h3>
+      <ul>
+        ${plan.edges.map((edge) => `<li>${escapeHtml(edge)}</li>`).join("")}
+      </ul>
+    </section>
+    <section class="blueprint-block">
+      <h3>Human Gate</h3>
+      <p>${escapeHtml(plan.scenario.gate)}</p>
+    </section>
+    <section class="blueprint-block">
+      <h3>First Safe Experiment</h3>
+      <p>${escapeHtml(plan.firstMove)}</p>
+    </section>
+  `;
+}
+
+function loadGraphScenario() {
+  const scenario = getGraphScenario();
+  if (graphFields.problem) graphFields.problem.value = scenario.problem;
+  if (graphFields.nodes) graphFields.nodes.value = scenario.nodes.join("\n");
+  if (graphFields.edges) graphFields.edges.value = scenario.edges.join("\n");
+  renderGraphOutput(graphPlanFromForm());
+}
+
+function renderGraphLoop() {
+  const plan = graphPlanFromForm();
+  renderGraphOutput(plan);
+
+  fields.loopType.value = "graphengineer";
+  fields.objective.value = `Map the system around this problem: ${plan.problem}`;
+  fields.metric.value = `The graph clearly explains ${plan.nodes.length} nodes, ${plan.edges.length} edges, the human gate, and the first safe experiment.`;
+  fields.boundary.value = plan.scenario.gate;
+  setRhythm("weekly");
+  renderBlueprint();
+  currentBlueprint = `${currentBlueprint.trim()}\n\n${graphMarkdown(plan)}`;
+  setProgress("export");
+  scrollToTarget("#graph-output-title", "#graph-output-title");
+  toast("Graph loop generated");
 }
 
 function renderArsenal() {
@@ -1444,9 +1621,20 @@ function startAgentic() {
 }
 on(buttons.applyAgenticSignal, "click", startAgentic);
 on(buttons.applyAgenticStack, "click", startAgentic);
+on(buttons.applyGraphEngineerSignal, "click", renderGraphLoop);
+on(buttons.applyGraphEngineerStack, "click", renderGraphLoop);
+on(graphFields.form, "submit", (event) => {
+  event.preventDefault();
+  renderGraphLoop();
+});
+on(graphFields.scenario, "change", loadGraphScenario);
+[graphFields.problem, graphFields.nodes, graphFields.edges].forEach((field) => {
+  on(field, "input", () => renderGraphOutput(graphPlanFromForm()));
+});
 
 loadState();
 applyLanguageStatic();
+loadGraphScenario();
 renderArsenal();
 renderBlueprint();
 setProgress("mission");

@@ -12,6 +12,7 @@ https://neo-potter-loop-engine.netlify.app
 - Daily reset starter paths
 - Dynamic mission guidance for each loop type
 - Agentic Engineering loop prompt that preserves important context
+- Graph Engineer form for mapping problems into nodes, edges, gates, and examples
 - Safe Loop Gates
 - Open-Source Arsenal with direct GitHub links
 - Copy and Markdown export
@@ -26,7 +27,8 @@ https://neo-potter-loop-engine.netlify.app
 3. Generate the Living Loop Blueprint.
 4. Copy or export the Markdown system.
 5. Use the Agentic Engineering loop when the system should keep improving itself without losing context.
-6. Use the GitHub Arsenal links for deeper open-source experiments.
+6. Use the Graph Engineer form when a messy problem needs nodes, edges, scenarios, and an Explain Like I'm Five explanation.
+7. Use the GitHub Arsenal links for deeper open-source experiments.
 
 ## Agentic Loop Rule
 
@@ -67,6 +69,7 @@ The app serves from `public/`.
 - Confirms required app files and assets exist.
 - Confirms `index.html` references the CSS, JS, and hero image.
 - Confirms the start action links to the builder.
+- Confirms the Graph Engineer form, generated example, template, and ELI5 explanation are present.
 - Confirms all required GitHub Arsenal links are present exactly once.
 - Blocks the removed prompt-compressor route from re-entering the app.
 

@@ -29,6 +29,7 @@
             <a href="#guided-build">Reset</a>
             <a href="#habits-title">Habits</a>
             <a href="#agentic-title">System</a>
+            <a href="#graph-engineer-title">Graph</a>
             <a href="#arsenal-title">GitHub Arsenal</a>
             <a href="#blueprint-title">Blueprint</a>
           </div>
@@ -156,6 +157,7 @@
                 <option value="instaprod">Instagram productizer</option>
                 <option value="arsenal">Open-source arsenal</option>
                 <option value="agentic">Agentic engineering</option>
+                <option value="graphengineer">Graph engineer</option>
                 <option value="custom">Custom loop</option>
               </select>
               <p class="field-note">Each field preloads an opinionated Neo-style reset you can edit immediately.</p>
@@ -258,6 +260,10 @@
               <button class="secondary-button" id="applyAgenticSignal" type="button">
                 <i data-lucide="factory"></i>
                 Agentic
+              </button>
+              <button class="secondary-button" id="applyGraphEngineerSignal" type="button">
+                <i data-lucide="network"></i>
+                Graph
               </button>
               <a class="link-button" href="https://public-gilt-kappa.vercel.app/" target="_blank" rel="noreferrer">
                 <i data-lucide="external-link"></i>
@@ -375,6 +381,109 @@ Keep looping until the score is 95+ or a real approval gate blocks progress.</co
               <i data-lucide="external-link"></i>
               Open Live App
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="system-band graph-band" aria-labelledby="graph-engineer-title">
+        <div class="system-layout">
+          <div class="path-heading">
+            <p class="section-kicker">Graph engineer</p>
+            <h2 id="graph-engineer-title">Turn a messy problem into a map the system can act on.</h2>
+            <p>
+              A graph engineer names the pieces, draws the connections, marks the risky doors, and chooses the
+              first safe experiment. It is how a loop stops being a vague idea and becomes a visible system.
+            </p>
+          </div>
+          <div class="loop-prompt-panel" aria-label="Graph loop engineer form">
+            <article class="prompt-copy">
+              <span>Explain Like I'm Five</span>
+              <h3>Dots, strings, and one clean next move.</h3>
+              <p>
+                Imagine every important thing is a dot. A line between two dots means they affect each other.
+                A graph engineer helps the computer follow those lines without getting lost, rushing into danger,
+                or forgetting who should decide.
+              </p>
+            </article>
+            <form id="graphLoopForm">
+              <div class="field">
+                <label for="graphScenario">Scenario</label>
+                <select id="graphScenario">
+                  <option value="creatorLaunch">Creator launch</option>
+                  <option value="habitReset">Habit reset</option>
+                  <option value="agentWorkflow">AI agent workflow</option>
+                  <option value="openSourceChoice">Open-source tool choice</option>
+                  <option value="supportLoop">Customer support loop</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="graphProblem">Problem</label>
+                <textarea id="graphProblem" rows="3">I have too many ideas, tools, and posts. I need one visible map that shows what to build first and where human approval is required.</textarea>
+              </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="graphNodes">Nodes</label>
+                  <textarea id="graphNodes" rows="4">Idea inbox
+Audience pain
+Offer promise
+Draft output
+Human review
+Public launch</textarea>
+                </div>
+                <div class="field">
+                  <label for="graphEdges">Edges</label>
+                  <textarea id="graphEdges" rows="4">Idea inbox -> Audience pain
+Audience pain -> Offer promise
+Offer promise -> Draft output
+Draft output -> Human review
+Human review -> Public launch</textarea>
+                </div>
+              </div>
+              <div class="actions">
+                <button class="primary-button" id="generateGraphLoop" type="submit">
+                  <i data-lucide="network"></i>
+                  Generate Graph Loop
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="loop-prompt-panel" aria-live="polite" aria-labelledby="graph-output-title">
+            <article class="prompt-copy">
+              <span>Generated example</span>
+              <h3 id="graph-output-title">Creator launch graph loop</h3>
+              <p>
+                The form converts a practical problem into nodes, edges, a safety gate, and a first experiment.
+              </p>
+            </article>
+            <div class="blueprint-content" id="graphOutputContent"></div>
+          </div>
+          <div class="system-grid" aria-label="Graph engineer examples">
+            <article class="system-card highlight-card">
+              <span>Problem</span>
+              <h3>Too many moving parts</h3>
+              <p>When ideas, tools, people, and risks blur together, the next action becomes emotional instead of obvious.</p>
+            </article>
+            <article class="system-card">
+              <span>Nodes</span>
+              <h3>Name the pieces</h3>
+              <p>Inputs, people, files, agents, approvals, outputs, metrics, and memories each become a dot on the map.</p>
+            </article>
+            <article class="system-card">
+              <span>Edges</span>
+              <h3>Show the cause</h3>
+              <p>Lines show what depends on what, what unlocks the next step, and what can safely run in parallel.</p>
+            </article>
+            <article class="system-card">
+              <span>Gate</span>
+              <h3>Protect the human</h3>
+              <p>Money, private data, public posting, deletion, and deployment stop at approval nodes before action.</p>
+            </article>
+          </div>
+          <div class="masterclass-actions">
+            <button class="primary-button" id="applyGraphEngineerStack" type="button">
+              <i data-lucide="network"></i>
+              Build Graph Loop
+            </button>
           </div>
         </div>
       </section>
